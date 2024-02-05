@@ -2,9 +2,9 @@
   {
     "objectID": "index.html",
     "href": "index.html",
-    "title": "YOUR WORKSHOP TITLE",
+    "title": "Anatomy of an R Help File",
     "section": "",
-    "text": "Overview\nYOUR DESCRIPTION, LEARNING GOALS, PREREQUISITES, ETC"
+    "text": "Overview"
   },
   {
     "objectID": "01_intro.html#quarto",
@@ -33,5 +33,26 @@
     "title": "Example",
     "section": "Running Code",
     "text": "Running Code\nWhen you click the Render button a document will be generated that includes both content and the output of embedded code. You can embed code like this:\n\n1 + 1\n\n[1] 2\n\n\nYou can add options to executable code like this\n\n\n[1] 4\n\n\nThe echo: false option disables the printing of code (only output is displayed)."
+  },
+  {
+    "objectID": "01_intro.html#opening-r-documentation",
+    "href": "01_intro.html#opening-r-documentation",
+    "title": "Introduction",
+    "section": "Opening R documentation",
+    "text": "Opening R documentation\nYou can access R help files in several ways. If you know the name of the function or package you are looking for information about, you can use the ? operator to open the R help file.\n\n?summary\n\nIf you are unsure of what the function you are looking for is"
+  },
+  {
+    "objectID": "index.html#description",
+    "href": "index.html#description",
+    "title": "Anatomy of an R Help File",
+    "section": "Description",
+    "text": "Description"
+  },
+  {
+    "objectID": "index.html#learning-goals",
+    "href": "index.html#learning-goals",
+    "title": "Anatomy of an R Help File",
+    "section": "Learning Goals",
+    "text": "Learning Goals"
   }
 ]

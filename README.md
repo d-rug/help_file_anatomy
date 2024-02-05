@@ -1,4 +1,4 @@
-# Quarto Template: Workshop Reader
+# Anatomy of an R Help File
 
 This repository is a `Quarto` based template for workshop readers for the UC Davis DataLab.
 
@@ -8,20 +8,7 @@ To get started, create a new repo on GitHub from this template ([instructions](h
 
 Once you've cloned the repo, here's a checklist of things to do to prepare the repo:
 
-1.  **renv** (optional): To set up **renv**, open R at the top level of the repo and run:
 
-    ``` r
-    renv::init()
-    ```
-
-    Restart R. Then, install packages required for project or presentation. Finally, run:
-
-    ``` r
-    install.packages(YOUR PACKAGES HERE)
-    renv::snapshot()
-    ```
-
-    You can skip this step if you're not going to use **renv**.
 
 2.  `index.qmd` and `_quarto.yml`: Replace the all-caps text with your workshop details.
 

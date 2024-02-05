@@ -3,12 +3,12 @@ project:
   output-dir: docs
 
 book:
-  title: "YOUR WORKSHOP TITLE"
-  author: "[YOUR NAME]"
-  date: "DATE"
+  title: "Anatomy of an R Help File"
+  author: "Elise Hellwig"
+  date: ""
   
   search: true
-  repo-url: https://github.com/d-rug/YOUR_REPO
+  repo-url: https://github.com/d-rug/help_file_anatomy
   downloads: [pdf]
   chapters:
     - index.qmd

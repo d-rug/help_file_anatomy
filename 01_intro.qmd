@@ -122,7 +122,7 @@ allows you to pass the function arguments not explicitly listed in the
 function's documentation, and is typically done for two reasons. First, the 
 function's author does not want to restrict the number of arguments you can
 provide to the function. This is the case for functions like `sum()` and 
-`data.frame()`
+`data.frame()`. It would be inconvenient if 
 
 ```{r}
 
@@ -133,8 +133,38 @@ data.frame(x=1:12, y=month.name, z=month.abb)
 
 ```
 
-Second, the author may want to allow 
+Second, the author may want to allow other packages to use ____. 
 
+The `plot` function is one example of this. Many different packages define new
+classes that benefit from visualization. Instead of creating an entirely new
+function just for that class, the package's creator can make a version of the 
+plot function that will display objects of their class. The 
+`sf` class in the sf package is a good example of this. Objects of the `sf`
+class represent geographical information, like the spatial extent of the 
+counties of North Carolina. 
+
+```{r read_nc}
+
+#read in North Carolina data
+nc = st_read(system.file("shape/nc.shp", package="sf"), quiet = TRUE)
+
+head(nc)
+
+```
+
+
+If we open up the R help file for plot after loading sf using `?plot`, we have 
+the option to select documentation for the plot function in the sf package.
+If we do that, there are many more arguments listed in the Usage and Arguments
+sections. In particular, we can specify the position of the key (legend), plot
+the data on a log scale, and add a title. 
+
+```{r plot_nc}
+
+plot_title = 'Live Births in North Carolina from 1974-1978'
+
+plot(nc['BIR74'], key.pos=1, logz=TRUE, main=plot_title)
+```
 
 
 ### Arguments

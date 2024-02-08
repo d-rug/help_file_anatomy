@@ -75,55 +75,6 @@ The sections of an R help file in order are:
   
 Not every help file will contain all of these sections but most, if not all,
 will have a Title, Description, Usage, Arguments, Value and Examples sections.
-Of all the sections, We will not be covering the sections in order of
-appearence, but rather in order of usefulness and ease of understanding.
-
-### Examples
-
-The Examples section is by far the most useful, especially for beginners. It 
-contains example code that can be run on any computer without loading any
-additional packages or data. You can copy and paste it into your console and it
-should just work. It is a great place to start if you have absolutely no 
-experience with a function or package, or if you have tried everything
-and nothing seems to work. 
-
-The Examples section can also be a good place to get code to tinker with when 
-trying to understand how a function works. For example, if you don't understand 
-the description of the `digits` argument in the `summary()` documentation, you 
-can use the code in 
-
-```{r}
-
-#copied directly from the Examples section
-summary(attenu, digits = 4)
-
-```
-
-We can then modify the digits argument to see what effect this has on the 
-function's output.
-
-```{r}
-
-#copied directly from the Examples section
-summary(attenu, digits = 1)
-
-```
-
-
-### Arguments
-
-The Arguments section lists out the name each argument to the function, what
-class of object it needs to be, and a description of what the argument does. 
-
-### Value
-
-The Value section tells you what a function will return after it completes. If
-you save the output of the function to a variable, this is the value the 
-variable will have. The Value section will generally specify the class of the
-object as well the information the object contains. Some functions do not return
-a value. If this is the case, it may specify that in the Value section or the
-value section may be missing. Just because something displays in your console
-after running a function does not mean R returned anything (see [str][str_rd]).
 
 ### Title
 
@@ -185,6 +136,24 @@ data.frame(x=1:12, y=month.name, z=month.abb)
 Second, the author may want to allow 
 
 
+
+### Arguments
+
+The Arguments section lists out the name each argument to the function, what
+class of object it needs to be, and a description of what the argument does. 
+If there are multiple functions listed in the Usage section
+
+### Value
+
+The Value section tells you what a function will return after it completes. If
+you save the output of the function to a variable, this is the value the 
+variable will have. The Value section will generally specify the class of the
+object as well the information the object contains. Some functions do not return
+a value. If this is the case, it may specify that in the Value section or the
+value section may be missing. Just because something displays in your console
+after running a function does not mean R returned anything (see [str][str_rd]).
+
+
 ### Details
 
 
@@ -195,6 +164,39 @@ Second, the author may want to allow
 ### Author(s)
 
 ### See Also
+
+### Examples
+
+The Examples section is by far the most useful, especially for beginners. It 
+contains example code that can be run on any computer without loading any
+additional packages or data. You can copy and paste it into your console and it
+should just work. It is a great place to start if you have absolutely no 
+experience with a function or package, or if you have tried everything
+and nothing seems to work. 
+
+The Examples section can also be a good place to get code to tinker with when 
+trying to understand how a function works. For example, if you don't understand 
+the description of the `digits` argument in the `summary()` documentation, you 
+can use the code in 
+
+```{r}
+
+#copied directly from the Examples section
+summary(attenu, digits = 4)
+
+```
+
+We can then modify the digits argument to see what effect this has on the 
+function's output.
+
+```{r}
+
+#copied directly from the Examples section
+summary(attenu, digits = 1)
+
+```
+
+
 
 [str_rd]: https://www.rdocumentation.org/packages/utils/versions/3.6.2/topics/str 
 [dply]: https://cran.r-project.org/web/packages/dplyr/index.html

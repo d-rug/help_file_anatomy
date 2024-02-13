@@ -197,8 +197,8 @@ value of certain arguments. The help file for the covariance and correlation
 functions (`cov` and `cor`) is one example of this. The Details section
 describes how the functions work for each of the five options for the `use`
 argument. This includes telling you that one of them ("pairwise.complete.obs")
-only works if you use `method="pearson"`.
-
+only works if you use `method="pearson"`. If the function in question implements a mathematical formula, the Details section may also include the formula, like in
+the case of `dist()`.
 
 ### Value
 
@@ -213,11 +213,24 @@ your console after running a function does not mean R returned anything (see
 
 ### Note
 
+The Note section is a second Details section for less critical pieces of
+information. 
+
 ### References
+
+If the function implements a formula, statistical method, algorithm, or other 
 
 ### Author(s)
 
 ### See Also
+
+If the function whose documentation you are reviewing doesn't do exactly what
+you want, this is a good section to puruse. See Also contains links to the
+documentation files for functions that are similar to the function to the
+function you are investigating. This could include functions that implement a
+modified formula (like weighted means), or methods that are implemented for a
+different class like the summary method for a linear regression model (`lm`)
+object.
 
 ### Examples
 

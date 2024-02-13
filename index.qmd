@@ -13,3 +13,18 @@ format:
 
 ## Learning Goals
 
+  * Know where to look for R documentation depending on what type of question 
+  you need answered
+  
+  * Understand what information each section of a R help file contains 
+  
+  
+## Setup
+
+```{r}
+
+if (!require('sf')) install.packages('sf')
+
+
+```
+

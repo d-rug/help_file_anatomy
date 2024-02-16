@@ -329,11 +329,8 @@ right off the bat. That does not mean the code is not useful. The key is to use
 this code as a starting point, code that you know runs, and then work from
 there.
 
-
-[str_rd]: https://www.rdocumentation.org/packages/utils/versions/3.6.2/topics/str 
 [dply]: https://cran.r-project.org/web/packages/dplyr/index.html
 [cran]: https://cran.r-project.org/
 [bioC]: https://www.bioconductor.org/packages/release/BiocViews.html#___Software
 [rdoc]: https://www.rdocumentation.org/
 [rdrr]: https://rdrr.io/
-[gss]: https://gss.norc.org/

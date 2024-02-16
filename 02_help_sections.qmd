@@ -1,25 +1,269 @@
 ---
-title: "Example"
+title: "Sections of an R Help File"
 format: html
 ---
 
-## Quarto
+Each R help file has a standard set of sections with 
 
-Quarto enables you to weave together content and executable code into a finished document. To learn more about Quarto see <https://quarto.org>.
+The sections of an R help file in order are: 
 
-## Running Code
+  * Title
+  * Description
+  * Usage
+  * Arguments
+  * Details
+  * Value
+  * Note
+  * References
+  * Author(s)
+  * See Also
+  * Examples
+  
+Not every help file will contain all of these sections but most, if not all,
+will have a Title, Description, Usage, Arguments, Value and Examples sections.
 
-When you click the **Render** button a document will be generated that includes both content and the output of embedded code. You can embed code like this:
+## Title
+
+This is the section at the top of the help file and tells you the name of the 
+documentation page you are looking at as well as the package the documentation
+file is from (enclosed in {}). It also displays a very brief summary of what the
+function does in large lettering. While the title is not something I use
+regularly, I do occasionally need to figure out what package a particular
+function lives in and the title is a great place to do that.
+
+## Description
+
+The Description section gives a more detailed description of what the function
+or package does. It is not generally helpful for troubleshooting. However, it is
+useful when trying to determine whether or not a function would suit your needs
+for a particular task.
+
+## Usage
+
+The Usage section is the first regularly useful section, and one of the sections
+I commonly look at when troubleshooting. It is also probably the most difficult 
+to interpret. In general, it gives you information about how to *use* the
+function. 
+
+Every Usage section will have at least one example function call with
+the named arguments listed out. Arguments with an `=` after them have a default
+value and therefore do not necessarily need to be provided when using the
+function, assuming you don't mind the default values. If there is no `=` after
+the argument, it is a required argument and you will need to provide it each 
+time you call the function. The Usage section does not describe what each
+argument does. For that, you need to go to the Arguments section, which we will
+cover next. In general, the Usage and Arguments sections are closely links and 
+I often find myself jumping back and forth between them when trying to 
+understand what a function is doing.
+
+Sometimes developers document multiple functions in a single help file. This is
+the case for `read.table` and `read.csv`, which share a documentation page. 
+Even though two functions share a documentation page, that does not mean they
+share all the same arguments or default values. For example, the default value
+for the header argument is `FALSE` for `read.table` but `TRUE` for `read.csv`.
+
+If there is more than one example function call of the same function in the
+Usage section, that generally means that there is more than one version of the
+function R can use. Which version of the function R uses depends on the object
+class of the first argument passed to the function. Methods refer to functions
+that are specific to a given class of object.
+
+When there is more than one method listed in a given documentation file,
+the file will tell you which class of object that particular method applies to
+using a comment just above the function call with language like "method for class X" or
+"method for signature X". This tells you that the arguments listed inside that
+call are the arguments you need to run that method if your first argument has a
+class of X, as well as the default values.
+
+For example, if we summarize survey data from the [General Social Survey][gss]
+as a data.frame, R displays a maximum of 7 different values for categorical
+variables. 
 
 ```{r}
-1 + 1
+
+library(forcats)
+
+summary(gss_cat)
+
 ```
 
-You can add options to executable code like this 
+However, if we summarize one column of the data set, the summary function 
+displays many more categories.
 
 ```{r}
-#| echo: false
-2 * 2
+
+summary(gss_cat$relig)
+
 ```
 
-The `echo: false` option disables the printing of code (only output is displayed).
+Going back to the documentation for `summary()`, we can see that for a 
+data.frame the default value for maxsum is 7, while for a factor, the default 
+value for maxsum is 100. Now, this is one difference between these to versions
+of the summary function, but to determine if this is the reason the outputs 
+are different, we will need to refer to the Arguments section.
+
+
+## Arguments
+
+The Arguments section lists out the name each argument to the function, what
+class of object it needs to be, and a description of what the argument does. It
+is probably the section I use most commonly use when troubleshooting. If there
+are multiple functions listed in the Usage section, it is possible not every
+function will use every argument. You will need to refer to the Usage section to
+determine if a given argument applies to the function you are using. To figure
+out what the maxsum argument actually does, we refer to the arguments section of
+the `summary()` help file.
+
+You may see `...` as one of the arguments in the Arguments and Usage sections.
+This "argument" allows you to pass arguments to the function that are not
+explicitly listed in the function's documentation. This is typically done for two
+reasons.
+
+First, the function's author many not want to restrict the number of arguments
+you can provide to the function. This is the case for functions like `sum()` and
+`data.frame()`. It would be pretty silly for the R developers to limit the
+number of columns you could create a data.frame with.
+
+```{r}
+
+sum(1:10, 99, 21:91)
+
+
+data.frame(x=1:12, y=month.name, z=month.abb)
+
+```
+
+Second, the author of a given function may want to allow other packages to 
+expand the functionality of that function. However, the original author won't
+necessarily know what arguments will be useful for future R developers. So 
+instead, they can include `...` as an argument, and then other packages can
+define additional arguments that will be useful to them.
+
+The plot function is one example of this. Many different packages define new
+classes that benefit from visualization. Instead of creating an entirely new
+function for just that class, the package's creator can make a version of the
+`plot()` that will display objects of their class. The sf package uses this
+functionality. The sf package defines the `sf` class, which stores geographical
+information, like the counties of North Carolina. This is the type of data we
+use to make maps.
+
+```{r read_nc}
+library(sf)
+
+#read in North Carolina data
+nc = st_read(system.file("shape/nc.shp", package="sf"), quiet = TRUE)
+
+#class of data created using sf package
+class(nc)
+
+head(nc)
+
+```
+
+
+If we open up the R help file for plot after loading sf using `?plot`, we have
+the option to select documentation for the plot function in the sf package by
+clicking on the link labeled "plot sf object". In the `sf::plot` help page there
+are many more arguments listed in the Usage and Arguments sections. In
+particular, we can specify the position of the key (legend), plot the data on a
+log scale, and add a title.
+
+```{r plot_nc}
+
+plot_title = 'Live Births in North Carolina from 1974-1978'
+
+plot(nc['BIR74'], key.pos=1, logz=TRUE, main=plot_title)
+```
+
+## Details
+
+The this section generally contains information that is important but may not
+clearly fit in any of the other sections. It is often where I go looking for
+help when I run into a problem that I can't easily solve. Details covers the
+"behavior" of a function, or how a function accomplishes its task. This is
+especially important for functions that "behave" differently when you change the
+value of certain arguments. The help file for the covariance and correlation
+functions (`cov` and `cor`) is one example of this. The Details section
+describes how the functions work for each of the five options for the `use`
+argument. This includes telling you that one of them ("pairwise.complete.obs")
+only works if you use `method="pearson"`. If the function in question implements
+a mathematical formula, the Details section may also include the formula, like
+in the case of `?dist`.
+
+## Value
+
+The Value section tells you what a function will return after it completes. If
+you save the output of the function to a variable, this is the information that
+will be stored in the variable. The Value section will generally specify the
+class of the object as well the information the object contains. Some functions
+do not return a value. If this is the case, the Value section may specify that
+the function doesn't return anything or the Value section may be missing. Just
+because something displays in your console after running a function does not
+mean R returned anything (see [str][str_rd]).
+
+## Note
+
+The Note section is a second Details section for less critical pieces of
+information. In the help file for the data.frame function, it tells us that 
+if we need code to be compatible with versions of R earlier than R 2.4.0, the
+class of our row.names argument needs to be a character vector. While this is
+undoubtedly useful for a very small subset of users, most of us don't need to 
+worry about that.
+
+## References
+
+If the function implements a formula, statistical method, algorithm, procedure,
+or data structure developed elsewhere, the References section will include the
+citation for the original source. The References section for the data.frame
+function cites a textbook on the S programming language, R's precursor.
+
+## Author(s)
+
+## See Also
+
+If the function whose documentation you are reviewing doesn't do exactly what
+you want, this is a good section to puruse. See Also contains links to the
+documentation files for functions that are similar to the function to the
+function you are investigating. This could include functions that implement a
+modified formula (like weighted means), or methods that are implemented for a
+different class like the summary method for a linear regression model (`lm`)
+object.
+
+## Examples
+
+The Examples section is by far the most useful section for beginners. It 
+contains example code that can be run on any computer without loading any
+additional packages or data. You can copy and paste it into your console and it
+should just work. It is a great place to start if you have absolutely no 
+experience with a function or package, or if you have tried everything
+and nothing seems to work. 
+
+The Examples section can also be a good place to get code to tinker with when 
+trying to understand how a function works. For example, if you don't understand 
+the description of the `digits` argument in the `summary()` documentation, you 
+can use the code in 
+
+```{r}
+
+#copied directly from the Examples section
+summary(attenu, digits = 4)
+
+```
+
+We can then modify the digits argument to see what effect this has on the 
+function's output.
+
+```{r}
+
+#copied directly from the Examples section
+summary(attenu, digits = 1)
+
+```
+
+It is rare that the code in the Examples section will do exactly what you want
+right off the bat. That does not mean the code is not useful. The key is to use
+this code as a starting point, code that you know runs, and then work from
+there.
+
+[gss]: https://gss.norc.org/
+[str_rd]: https://www.rdocumentation.org/packages/utils/versions/3.6.2/topics/str 

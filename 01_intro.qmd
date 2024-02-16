@@ -244,14 +244,15 @@ plot(nc['BIR74'], key.pos=1, logz=TRUE, main=plot_title)
 The this section generally contains information that is important but may not
 clearly fit in any of the other sections. It is often where I go looking for
 help when I run into a problem that I can't easily solve. Details covers the
-"behavior" of a function, or how a function accomplishes its task. This is 
+"behavior" of a function, or how a function accomplishes its task. This is
 especially important for functions that "behave" differently when you change the
 value of certain arguments. The help file for the covariance and correlation
 functions (`cov` and `cor`) is one example of this. The Details section
 describes how the functions work for each of the five options for the `use`
 argument. This includes telling you that one of them ("pairwise.complete.obs")
-only works if you use `method="pearson"`. If the function in question implements a mathematical formula, the Details section may also include the formula, like in
-the case of `dist()`.
+only works if you use `method="pearson"`. If the function in question implements
+a mathematical formula, the Details section may also include the formula, like
+in the case of `?dist`.
 
 ### Value
 
@@ -259,19 +260,26 @@ The Value section tells you what a function will return after it completes. If
 you save the output of the function to a variable, this is the information that
 will be stored in the variable. The Value section will generally specify the
 class of the object as well the information the object contains. Some functions
-do not return a value. If this is the case, it may specify that in the Value
-section or the value section may be missing. Just because something displays in
-your console after running a function does not mean R returned anything (see
-[str][str_rd]).
+do not return a value. If this is the case, the Value section may specify that
+the function doesn't return anything or the Value section may be missing. Just
+because something displays in your console after running a function does not
+mean R returned anything (see [str][str_rd]).
 
 ### Note
 
 The Note section is a second Details section for less critical pieces of
-information. 
+information. In the help file for the data.frame function, it tells us that 
+if we need code to be compatible with versions of R earlier than R 2.4.0, the
+class of our row.names argument needs to be a character vector. While this is
+undoubtedly useful for a very small subset of users, most of us don't need to 
+worry about that.
 
 ### References
 
-If the function implements a formula, statistical method, algorithm, or other 
+If the function implements a formula, statistical method, algorithm, procedure,
+or data structure developed elsewhere, the References section will include the
+citation for the original source. The References section for the data.frame
+function cites a textbook on the S programming language, R's precursor.
 
 ### Author(s)
 
@@ -287,7 +295,7 @@ object.
 
 ### Examples
 
-The Examples section is by far the most useful, especially for beginners. It 
+The Examples section is by far the most useful section for beginners. It 
 contains example code that can be run on any computer without loading any
 additional packages or data. You can copy and paste it into your console and it
 should just work. It is a great place to start if you have absolutely no 
@@ -316,6 +324,10 @@ summary(attenu, digits = 1)
 
 ```
 
+It is rare that the code in the Examples section will do exactly what you want
+right off the bat. That does not mean the code is not useful. The key is to use
+this code as a starting point, code that you know runs, and then work from
+there.
 
 
 [str_rd]: https://www.rdocumentation.org/packages/utils/versions/3.6.2/topics/str 

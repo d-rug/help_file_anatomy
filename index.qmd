@@ -24,6 +24,8 @@ and on the internet.
   
   * Understand what information each section of a R help file contains 
   
+  * Know which help file sections to look at depending on what type of problem
+  you have
   
 ## Setup
 

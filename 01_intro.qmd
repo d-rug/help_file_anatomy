@@ -9,11 +9,14 @@ You can access R help files in several ways. If you know the name of the
 function or package you are looking for information about, you can use the `?`
 operator with the name of the function to open the R help file. This will only 
 open documentation for functions and packages you currently have **loaded** 
-into R.
+into R. This is also equivalent to using the `help()` function
 
 ```{r}
 
+#these lines of code are equivalent
 ?summary
+
+help('summary')
 
 ```
 
@@ -22,12 +25,18 @@ help window. If you use the GUI, it will open a separate help window. If you are
 running R in bash or zsh, R will open the help file in your default text editor.
 
 If you are unsure of the function name, you can use the `??` operator to search
-all of your R documentation for a term or set of terms. For multiple search 
-terms, enclose them in tick marks.
+all of your R documentation for a term or set of terms. For multiple search
+terms, enclose them in tick marks. The `??` operator is equivalent to the
+function `help.search()`, but for help.search you enclose your search term in
+quotes. The help.search function also gives you more control over what you are
+searching.
 
 ```{r}
 
-??`linear model`
+??`linear model` 
+
+#look for linear model only in the title of the help file
+help.search('linear model', fields='title')
 
 ```
 
@@ -40,12 +49,13 @@ access function you are interested in.
 
 If you want to search documentation for packages that you haven't installed yet,
 you have a couple of options. If you are only looking for packages that are
-available through [CRAN][cran] or [bioconductor][bioC], you can use
-[rdocumentation.org][rdoc]. CRAN itself contains a lot of documentation for each
-package on the package's page (ex. [dplyr][dply]), but the information isn't 
-searchable from the website and you have to know what package you want 
-information on. If you also want to be able to search packages hosted on R-forge
-and Github in addition to CRAN and bioconductor, you can use [rdrr.io][rdrr]. 
+available through [CRAN][cran] or [bioconductor][bioC], you can use the
+`RSiteSearch()` function, or [rdocumentation.org][rdoc] if you prefer a web
+interface. CRAN itself contains a lot of documentation for each package on the
+package's page (ex. [dplyr][dply]), but the information isn't searchable from
+the website and you have to know what package you want information on. If you
+also want to be able to search packages hosted on R-forge and Github in addition
+to CRAN and bioconductor, you can use [rdrr.io][rdrr].
 
 ### Documentation Duplication
 

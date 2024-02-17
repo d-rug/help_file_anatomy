@@ -1,13 +1,12 @@
 ---
-title: "Anatomy of an R Help File"
+title: "Overview"
 format:
   html:
     theme: cosmo
 ---
 
-# Overview {.unnumbered}
 
-## Description
+# Description {.unnumbered}
 
 The R programming language has a vast and sprawling documentation library, and
 a lot of it is in a standardized format: the R help file. Unfortunately, R help 
@@ -17,7 +16,7 @@ of the R help file, how to read them, and when they are the most useful. It
 will also introduce you a number of ways to search R documentation, both from R
 and on the internet.
 
-## Learning Goals
+# Learning Goals {.unnumbered}
 
   * Know where to look for R documentation depending on what type of question 
   you need answered
@@ -27,7 +26,7 @@ and on the internet.
   * Know which help file sections to look at depending on what type of problem
   you have
   
-## Setup
+# Setup {.unnumbered}
 
 ```{r message=FALSE}
 

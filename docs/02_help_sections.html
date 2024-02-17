@@ -219,6 +219,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="title" class="level2">
 <h2 class="anchored" data-anchor-id="title">Title</h2>
 <p>This is the section at the top of the help file and tells you the name of the documentation page you are looking at as well as the package the documentation file is from (enclosed in {}). It also displays a very brief summary of what the function does in large lettering. While the title is not something I use regularly, I do occasionally need to figure out what package a particular function lives in and the title is a great place to do that.</p>
+<p><img src="img/summary_title.png" class="img-fluid"></p>
+<p>If the package that contains the function is the “base” package, that means it is a part of “base” R, or the the set of functions and classes available to you whenever you open an R session. The packages stats, graphics, utils, datasets, methods, and grDevices are also always loaded whenever you open an R session, so you don’t need to call them with <code>require</code> or <code>library</code>.</p>
 </section>
 <section id="description" class="level2">
 <h2 class="anchored" data-anchor-id="description">Description</h2>
@@ -231,6 +233,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Sometimes developers document multiple functions in a single help file. This is the case for <code>read.table</code> and <code>read.csv</code>, which share a documentation page. Even though two functions share a documentation page, that does not mean they share all the same arguments or default values. For example, the default value for the header argument is <code>FALSE</code> for <code>read.table</code> but <code>TRUE</code> for <code>read.csv</code>.</p>
 <p>If there is more than one example function call of the same function in the Usage section, that generally means that there is more than one version of the function R can use. Which version of the function R uses depends on the object class of the first argument passed to the function. Methods refer to functions that are specific to a given class of object.</p>
 <p>When there is more than one method listed in a given documentation file, the file will tell you which class of object that particular method applies to using a comment just above the function call with language like “method for class X” or “method for signature X”. This tells you that the arguments listed inside that call are the arguments you need to run that method if your first argument has a class of X, as well as the default values.</p>
+<p><img src="img/summary_usage.png" class="img-fluid"></p>
 <p>For example, if we summarize survey data from the <a href="https://gss.norc.org/">General Social Survey</a> as a data.frame, R displays a maximum of 7 different values for categorical variables.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(forcats)</span>
@@ -409,8 +412,7 @@ Geodetic CRS:  NAD27
 </div>
 <p>We can then modify the digits argument to see what effect this has on the function’s output.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co">#copied directly from the Examples section</span></span>
-<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(attenu, <span class="at">digits =</span> <span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(attenu, <span class="at">digits =</span> <span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>     event         mag       station         dist           accel      
  Min.   : 1   Min.   :5   117    :  5   Min.   :  0.5   Min.   :0.003  

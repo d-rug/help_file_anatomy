@@ -1,27 +1,26 @@
 ---
-title: "Sections of an R Help File"
+title: "Reading R Help Files"
 format: html
 ---
 
-Each R help file has a standard set of sections with 
+## Sections of an R Help File
 
-The sections of an R help file in order are: 
+Each R help file has a standard set of sections. Not every help file will have
+every section, but all help files will have the starred sections in the list
+below. The sections of an R help file in order are:
 
-  * Title
-  * Description
-  * Usage
-  * Arguments
-  * Details
-  * Value
-  * Note
-  * References
-  * Author(s)
-  * See Also
-  * Examples
+  * [Title*][title_l]
+  * [Description*][desc]
+  * [Usage*][use]
+  * [Arguments*][arg]
+  * [Details][dets]
+  * [Value][val]
+  * [Note][note]
+  * [References][refs]
+  * [Author(s)][auts]
+  * [See Also][see]
+  * [Examples*][ex]
   
-Not every help file will contain all of these sections but most, if not all,
-will have a Title, Description, Usage, Arguments, Value and Examples sections.
-
 ## Title
 
 This is the section at the top of the help file and tells you the name of the 
@@ -265,5 +264,16 @@ right off the bat. That does not mean the code is not useful. The key is to use
 this code as a starting point, code that you know runs, and then work from
 there.
 
+[title_l]: https://d-rug.github.io/help_file_anatomy/02_help_sections.html#title
+[desc]: https://d-rug.github.io/help_file_anatomy/02_help_sections.html#description
+[use]: https://d-rug.github.io/help_file_anatomy/02_help_sections.html#usage
+[arg]: https://d-rug.github.io/help_file_anatomy/02_help_sections.html#arguments
+[dets]: https://d-rug.github.io/help_file_anatomy/02_help_sections.html#details
+[val]: https://d-rug.github.io/help_file_anatomy/02_help_sections.html#value
+[note]: https://d-rug.github.io/help_file_anatomy/02_help_sections.html#note
+[refs]: https://d-rug.github.io/help_file_anatomy/02_help_sections.html#references
+[auts]: https://d-rug.github.io/help_file_anatomy/02_help_sections.html#authors
+[see]: https://d-rug.github.io/help_file_anatomy/02_help_sections.html#see-also
+[ex]: https://d-rug.github.io/help_file_anatomy/02_help_sections.html#examples
 [gss]: https://gss.norc.org/
 [str_rd]: https://www.rdocumentation.org/packages/utils/versions/3.6.2/topics/str 

@@ -30,6 +30,14 @@ function does in large lettering. While the title is not something I use
 regularly, I do occasionally need to figure out what package a particular
 function lives in and the title is a great place to do that.
 
+![](img/summary_title.png)
+
+If the package that contains the function is the "base" package, that means it
+is a part of "base" R, or the the set of functions and classes available to you
+whenever you open an R session. The packages stats, graphics, utils, datasets,
+methods, and grDevices are also always loaded whenever you open an R session, so
+you don't need to call them with `require` or `library`.
+
 ## Description
 
 The Description section gives a more detailed description of what the function
@@ -73,6 +81,8 @@ using a comment just above the function call with language like "method for clas
 "method for signature X". This tells you that the arguments listed inside that
 call are the arguments you need to run that method if your first argument has a
 class of X, as well as the default values.
+
+![](img/summary_usage.png)
 
 For example, if we summarize survey data from the [General Social Survey][gss]
 as a data.frame, R displays a maximum of 7 different values for categorical
@@ -254,7 +264,6 @@ function's output.
 
 ```{r}
 
-#copied directly from the Examples section
 summary(attenu, digits = 1)
 
 ```

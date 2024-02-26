@@ -90,6 +90,7 @@ based on the package you are using. Be sure to click on the link that
 corresponds to the function you have questions about.
 
 ![](img/multiple_help_docs.png)
+
 ## Definitions
 
 R documentation uses a couple of terms that are sometimes glossed over

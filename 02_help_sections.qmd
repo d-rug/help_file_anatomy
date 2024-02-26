@@ -130,8 +130,8 @@ the `summary()` help file.
 
 You may see `...` as one of the arguments in the Arguments and Usage sections.
 This "argument" allows you to pass arguments to the function that are not
-explicitly listed in the function's documentation. This is typically done for two
-reasons.
+explicitly listed in the function's documentation. This is typically done for
+two reasons.
 
 First, the function's author many not want to restrict the number of arguments
 you can provide to the function. This is the case for functions like `sum()` and

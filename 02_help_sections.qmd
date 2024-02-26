@@ -23,8 +23,6 @@ below. The sections of an R help file in order are:
   
 ## Title
 
-![](img/summary_title.png)
-
 This is the section at the top of the help file and tells you the name of the 
 documentation page you are looking at as well as the package the documentation
 file is from (enclosed in {}). It also displays a very brief summary of what the
@@ -39,8 +37,6 @@ methods, and grDevices are also always loaded whenever you open an R session, so
 you don't need to call them with `require` or `library`.
 
 ## Description
-
-![](img/summary_description.png)
 
 The Description section gives a more detailed description of what the function
 or package does. It is not generally helpful for troubleshooting. However, it is
@@ -85,8 +81,6 @@ using a comment just above the function call with language like "method for clas
 call are the arguments you need to run that method if your first argument has a
 class of X, as well as the default values.
 
-![](img/summary_usage.png)
-
 For example, if we summarize survey data from the [General Social Survey][gss]
 as a data.frame, R displays a maximum of 7 different values for categorical
 variables. 
@@ -125,8 +119,6 @@ determine if a given argument applies to the function you are using. To figure
 out what the maxsum argument actually does, we refer to the arguments section of
 the `summary()` help file.
 
-![](img/summary_arguments.png)
-
 
 You may see `...` as one of the arguments in the Arguments and Usage sections.
 This "argument" allows you to pass arguments to the function that are not
@@ -158,7 +150,6 @@ the generic plot function, you can see that there are only a few arguments
 listed, and they seemed to be geared toward X-Y plotting. This is very useful,
 but it is definitely not the only type of plotting you may want to do. 
 
-![](img/plot_usage_arguments.png)
 Many different types of objects benefit from visualization, including
 ones that don't neatly fit into the X-Y paradigm. It is very common that 
 packages will define a new class of object to accomplish a particular goal and
@@ -253,8 +244,6 @@ or data structure developed elsewhere, the References section will include the
 citation for the original source. The References section for the data.frame
 function cites a textbook on the S programming language, R's precursor.
 
-![](img/dataframe_references.png)
-
 ## See Also
 
 If the function whose documentation you are reviewing doesn't do exactly what
@@ -266,7 +255,6 @@ different class like the summary method for a linear regression model (`lm`)
 object. It also may include methods that can be used with a given class of 
 object, like in the case of the lm help file.
 
-![](img/lm_seealso.png)
 
 ## Examples
 

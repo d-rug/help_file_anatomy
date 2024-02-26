@@ -172,8 +172,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#details" id="toc-details" class="nav-link" data-scroll-target="#details">Details</a></li>
   <li><a href="#value" id="toc-value" class="nav-link" data-scroll-target="#value">Value</a></li>
   <li><a href="#note" id="toc-note" class="nav-link" data-scroll-target="#note">Note</a></li>
-  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References</a></li>
   <li><a href="#authors" id="toc-authors" class="nav-link" data-scroll-target="#authors">Author(s)</a></li>
+  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References</a></li>
   <li><a href="#see-also" id="toc-see-also" class="nav-link" data-scroll-target="#see-also">See Also</a></li>
   <li><a href="#examples" id="toc-examples" class="nav-link" data-scroll-target="#examples">Examples</a></li>
   </ul>
@@ -317,7 +317,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <p>Second, the author of a given function may want to allow other packages to expand the functionality of that function. However, the original author won’t necessarily know what arguments will be useful for future R developers. So instead, they can include <code>...</code> as an argument, and then other packages can define additional arguments that will be useful to them.</p>
 <p>The plot function is one example of this. If you look at the documentation for the generic plot function, you can see that there are only a few arguments listed, and they seemed to be geared toward X-Y plotting. This is very useful, but it is definitely not the only type of plotting you may want to do.</p>
-<p>In fact, many different packages define types of objects (classes) that benefit from visualization. Instead of creating an entirely new function for just that class, the package’s creator can make a version of <code>plot()</code> (aka method) that will display objects of their class. The sf package uses this functionality. The sf package defines the <code>sf</code> class, which stores geographical information, like the counties of North Carolina. This is the type of data we use to make maps.</p>
+<p><img src="img/plot_usage_arguments.png" class="img-fluid"> Many different types of objects benefit from visualization, including ones that don’t neatly fit into the X-Y paradigm. It is very common that packages will define a new class of object to accomplish a particular goal and want to visualize those object in some way. Instead of creating an entirely new function to visualize their new objects, the package’s creator can create a new method for <code>plot()</code>. This is useful because it standardizes the way we visualize things, and it reduces the amount of work the developer needs to do.</p>
+<p>The sf package uses this functionality. The sf package defines the <code>sf</code> class, which stores geographical information, like the counties of North Carolina. This is the type of data we use to make maps.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(sf)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
@@ -374,26 +375,32 @@ Geodetic CRS:  NAD27
 </section>
 <section id="note" class="level2">
 <h2 class="anchored" data-anchor-id="note">Note</h2>
-<p>The Note section is a second Details section for less critical pieces of information. In the help file for the data.frame function, it tells us that if we need code to be compatible with versions of R earlier than R 2.4.0, the class of our row.names argument needs to be a character vector. While this is undoubtedly useful for a very small subset of users, most of us don’t need to worry about that.</p>
+<p>The Note section is a second Details section for less critical pieces of information. In the help file for the data.frame function, it tells us that if we need code to be compatible with versions of R earlier than R 2.4.0, the class of our row.names argument needs to be a character vector. While this is undoubtedly useful for a very small subset of users, it isn’t relevant for most people.</p>
+</section>
+<section id="authors" class="level2">
+<h2 class="anchored" data-anchor-id="authors">Author(s)</h2>
+<p>The Authors(s) section lists the authors who wrote the function or package in question. It is more common to see for packages but there are some functions that mention specific authors as well, as is the case for <code>lm()</code>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>?<span class="st">`</span><span class="at">sf-package</span><span class="st">`</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 </section>
 <section id="references" class="level2">
 <h2 class="anchored" data-anchor-id="references">References</h2>
 <p>If the function implements a formula, statistical method, algorithm, procedure, or data structure developed elsewhere, the References section will include the citation for the original source. The References section for the data.frame function cites a textbook on the S programming language, R’s precursor.</p>
-</section>
-<section id="authors" class="level2">
-<h2 class="anchored" data-anchor-id="authors">Author(s)</h2>
+<p><img src="img/dataframe_references.png" class="img-fluid"></p>
 </section>
 <section id="see-also" class="level2">
 <h2 class="anchored" data-anchor-id="see-also">See Also</h2>
-<p>If the function whose documentation you are reviewing doesn’t do exactly what you want, this is a good section to puruse. See Also contains links to the documentation files for functions that are similar to the function to the function you are investigating. This could include functions that implement a modified formula (like weighted means), or methods that are implemented for a different class like the summary method for a linear regression model (<code>lm</code>) object.</p>
+<p>If the function whose documentation you are reviewing doesn’t do exactly what you want, this is a good section to peruse. See Also contains links to the documentation files for functions that are similar to the function to the function you are investigating. This could include functions that implement a modified formula (like weighted means), or methods that are implemented for a different class like the summary method for a linear regression model (<code>lm</code>) object. It also may include methods that can be used with a given class of object, like in the case of the lm help file.</p>
+<p><img src="img/lm_seealso.png" class="img-fluid"></p>
 </section>
 <section id="examples" class="level2">
 <h2 class="anchored" data-anchor-id="examples">Examples</h2>
 <p>The Examples section is by far the most useful section for beginners. It contains example code that can be run on any computer without loading any additional packages or data. You can copy and paste it into your console and it should just work. It is a great place to start if you have absolutely no experience with a function or package, or if you have tried everything and nothing seems to work.</p>
 <p>The Examples section can also be a good place to get code to tinker with when trying to understand how a function works. For example, if you don’t understand the description of the <code>digits</code> argument in the <code>summary()</code> documentation, you can use the code in</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co">#copied directly from the Examples section</span></span>
-<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(attenu, <span class="at">digits =</span> <span class="dv">4</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co">#copied directly from the Examples section</span></span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(attenu, <span class="at">digits =</span> <span class="dv">4</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>     event            mag           station         dist       
  Min.   : 1.00   Min.   :5.000   117    :  5   Min.   :  0.50  
@@ -415,7 +422,7 @@ Geodetic CRS:  NAD27
 </div>
 <p>We can then modify the digits argument to see what effect this has on the function’s output.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(attenu, <span class="at">digits =</span> <span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(attenu, <span class="at">digits =</span> <span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>     event         mag       station         dist           accel      
  Min.   : 1   Min.   :5   117    :  5   Min.   :  0.5   Min.   :0.003  

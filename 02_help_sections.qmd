@@ -158,9 +158,15 @@ the generic plot function, you can see that there are only a few arguments
 listed, and they seemed to be geared toward X-Y plotting. This is very useful,
 but it is definitely not the only type of plotting you may want to do. 
 
-In fact, many different packages define types of objects (classes) that benefit from visualization.
-Instead of creating an entirely new function for just that class, the package's
-creator can make a version of `plot()` (aka method) that will display objects of their class.
+![](img/plot_usage_arguments.png)
+Many different types of objects benefit from visualization, including
+ones that don't neatly fit into the X-Y paradigm. It is very common that 
+packages will define a new class of object to accomplish a particular goal and
+want to visualize those object in some way. Instead of creating an entirely new
+function to visualize their new objects, the package's creator can create a 
+new method for `plot()`. This is useful because it standardizes the way we
+visualize things, and it reduces the amount of work the developer needs to do. 
+
 The sf package uses this functionality. The sf package defines the `sf` class,
 which stores geographical information, like the counties of North Carolina. This
 is the type of data we use to make maps.

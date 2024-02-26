@@ -218,13 +218,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="title" class="level2">
 <h2 class="anchored" data-anchor-id="title">Title</h2>
-<p><img src="img/summary_title.png" class="img-fluid"></p>
 <p>This is the section at the top of the help file and tells you the name of the documentation page you are looking at as well as the package the documentation file is from (enclosed in {}). It also displays a very brief summary of what the function does in large lettering. While the title is not something I use regularly, I do occasionally need to figure out what package a particular function lives in and the title is a great place to do that.</p>
 <p>If the package that contains the function is the “base” package, that means it is a part of “base” R, or the the set of functions and classes available to you whenever you open an R session. The packages stats, graphics, utils, datasets, methods, and grDevices are also always loaded whenever you open an R session, so you don’t need to call them with <code>require</code> or <code>library</code>.</p>
 </section>
 <section id="description" class="level2">
 <h2 class="anchored" data-anchor-id="description">Description</h2>
-<p><img src="img/summary_description.png" class="img-fluid"></p>
 <p>The Description section gives a more detailed description of what the function or package does. It is not generally helpful for troubleshooting. However, it is useful when trying to determine whether or not a function would suit your needs for a particular task.</p>
 </section>
 <section id="usage" class="level2">
@@ -234,7 +232,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Sometimes developers document multiple functions in a single help file. This is the case for <code>read.table</code> and <code>read.csv</code>, which share a documentation page. Even though two functions share a documentation page, that does not mean they share all the same arguments or default values. For example, the default value for the header argument is <code>FALSE</code> for <code>read.table</code> but <code>TRUE</code> for <code>read.csv</code>.</p>
 <p>If there is more than one example function call of the same function in the Usage section, that generally means that there is more than one version of the function R can use. Which version of the function R uses depends on the object class of the first argument passed to the function. Methods refer to functions that are specific to a given class of object.</p>
 <p>When there is more than one method listed in a given documentation file, the file will tell you which class of object that particular method applies to using a comment just above the function call with language like “method for class X” or “method for signature X”. This tells you that the arguments listed inside that call are the arguments you need to run that method if your first argument has a class of X, as well as the default values.</p>
-<p><img src="img/summary_usage.png" class="img-fluid"></p>
 <p>For example, if we summarize survey data from the <a href="https://gss.norc.org/">General Social Survey</a> as a data.frame, R displays a maximum of 7 different values for categorical variables.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(forcats)</span>
@@ -290,7 +287,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="arguments" class="level2">
 <h2 class="anchored" data-anchor-id="arguments">Arguments</h2>
 <p>The Arguments section lists out the name each argument to the function, what class of object it needs to be, and a description of what the argument does. It is probably the section I use most commonly use when troubleshooting. If there are multiple functions listed in the Usage section, it is possible not every function will use every argument. You will need to refer to the Usage section to determine if a given argument applies to the function you are using. To figure out what the maxsum argument actually does, we refer to the arguments section of the <code>summary()</code> help file.</p>
-<p><img src="img/summary_arguments.png" class="img-fluid"></p>
 <p>You may see <code>...</code> as one of the arguments in the Arguments and Usage sections. This “argument” allows you to pass arguments to the function that are not explicitly listed in the function’s documentation. This is typically done for two reasons.</p>
 <p>First, the function’s author many not want to restrict the number of arguments you can provide to the function. This is the case for functions like <code>sum()</code> and <code>data.frame()</code>. It would be pretty silly for the R developers to limit the number of columns you could create a data.frame with.</p>
 <div class="cell">
@@ -317,7 +313,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <p>Second, the author of a given function may want to allow other packages to expand the functionality of that function. However, the original author won’t necessarily know what arguments will be useful for future R developers. So instead, they can include <code>...</code> as an argument, and then other packages can define additional arguments that will be useful to them.</p>
 <p>The plot function is one example of this. If you look at the documentation for the generic plot function, you can see that there are only a few arguments listed, and they seemed to be geared toward X-Y plotting. This is very useful, but it is definitely not the only type of plotting you may want to do.</p>
-<p><img src="img/plot_usage_arguments.png" class="img-fluid"> Many different types of objects benefit from visualization, including ones that don’t neatly fit into the X-Y paradigm. It is very common that packages will define a new class of object to accomplish a particular goal and want to visualize those object in some way. Instead of creating an entirely new function to visualize their new objects, the package’s creator can create a new method for <code>plot()</code>. This is useful because it standardizes the way we visualize things, and it reduces the amount of work the developer needs to do.</p>
+<p>Many different types of objects benefit from visualization, including ones that don’t neatly fit into the X-Y paradigm. It is very common that packages will define a new class of object to accomplish a particular goal and want to visualize those object in some way. Instead of creating an entirely new function to visualize their new objects, the package’s creator can create a new method for <code>plot()</code>. This is useful because it standardizes the way we visualize things, and it reduces the amount of work the developer needs to do.</p>
 <p>The sf package uses this functionality. The sf package defines the <code>sf</code> class, which stores geographical information, like the counties of North Carolina. This is the type of data we use to make maps.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(sf)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -387,12 +383,10 @@ Geodetic CRS:  NAD27
 <section id="references" class="level2">
 <h2 class="anchored" data-anchor-id="references">References</h2>
 <p>If the function implements a formula, statistical method, algorithm, procedure, or data structure developed elsewhere, the References section will include the citation for the original source. The References section for the data.frame function cites a textbook on the S programming language, R’s precursor.</p>
-<p><img src="img/dataframe_references.png" class="img-fluid"></p>
 </section>
 <section id="see-also" class="level2">
 <h2 class="anchored" data-anchor-id="see-also">See Also</h2>
 <p>If the function whose documentation you are reviewing doesn’t do exactly what you want, this is a good section to peruse. See Also contains links to the documentation files for functions that are similar to the function to the function you are investigating. This could include functions that implement a modified formula (like weighted means), or methods that are implemented for a different class like the summary method for a linear regression model (<code>lm</code>) object. It also may include methods that can be used with a given class of object, like in the case of the lm help file.</p>
-<p><img src="img/lm_seealso.png" class="img-fluid"></p>
 </section>
 <section id="examples" class="level2">
 <h2 class="anchored" data-anchor-id="examples">Examples</h2>

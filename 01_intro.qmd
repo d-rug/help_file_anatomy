@@ -21,8 +21,8 @@ helping a computer programmer who just doesn't know R syntax, instead of helping
 a new coder who is completely confused.
 
 If you spent enough time puzzling over the R documentation, you could figure it
-out eventually. However, to avoid the wailing and gnashing of teeth that may be
-required, this tutorial will explain what should be your first stop any time you
+out eventually. However, to avoid the wailing and gnashing of teeth that may
+require, this tutorial will explain what should be your first stop any time you
 run into a problem in R: the R help file. The good news is that they are all
 structured the same way, so once you understand one of them, understanding the
 rest will be much easier.
@@ -100,8 +100,19 @@ impossible to read.
 
 Objects are all the things you can interact with in R. Whenever you create a
 variable, you create an object. All of the objects you create will appear in the
-Environment tab in RStudio. However, there are many more objects that R defines
-internally (ex. `mtcars`).
+Environment tab in RStudio. If you aren't using RStudio you can also get a list
+of your objects using `ls()`. 
+
+```{r}
+
+x = 5
+
+ls()
+
+```
+
+
+There are many more objects that R defines internally (ex. `mtcars`).
   
 ### Classes
 A class is the blueprint for the structure of an object. It defines how you can

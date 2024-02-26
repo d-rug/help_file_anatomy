@@ -201,7 +201,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h2 class="anchored" data-anchor-id="looking-for-help">Looking for Help</h2>
 <p>Whether it is a pesky error message or a function you can’t seem to get to do what you want, if you code, chances are you have already run into a few problems today. When programming, it is not a matter of if you get stuck, or even when you get stuck, but how much time will you spend stuck. Thankfully R has a wide variety of tools to help you get unstuck, from built-in documentation, to mailing lists, to help groups like the Davis R Users Group.</p>
 <p>If you have ever asked for coding help, you may have gotten the response “Have you checked the documentation?”, which is the programming equivalent of asking if you have read the manual. This is all well and good if you are proficient with computer speak, but for most beginners that is not the case. It doesn’t help that R documentation sometimes seems to be written from the perspective of helping a computer programmer who just doesn’t know R syntax, instead of helping a new coder who is completely confused.</p>
-<p>If you spent enough time puzzling over the R documentation, you could figure it out eventually. However, to avoid the wailing and gnashing of teeth that may be required, this tutorial will explain what should be your first stop any time you run into a problem in R: the R help file. The good news is that they are all structured the same way, so once you understand one of them, understanding the rest will be much easier.</p>
+<p>If you spent enough time puzzling over the R documentation, you could figure it out eventually. However, to avoid the wailing and gnashing of teeth that may require, this tutorial will explain what should be your first stop any time you run into a problem in R: the R help file. The good news is that they are all structured the same way, so once you understand one of them, understanding the rest will be much easier.</p>
 </section>
 <section id="opening-r-documentation" class="level2">
 <h2 class="anchored" data-anchor-id="opening-r-documentation">Opening R Documentation</h2>
@@ -230,7 +230,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="objects" class="level3">
 <h3 class="anchored" data-anchor-id="objects">Objects</h3>
-<p>Objects are all the things you can interact with in R. Whenever you create a variable, you create an object. All of the objects you create will appear in the Environment tab in RStudio. However, there are many more objects that R defines internally (ex. <code>mtcars</code>).</p>
+<p>Objects are all the things you can interact with in R. Whenever you create a variable, you create an object. All of the objects you create will appear in the Environment tab in RStudio. If you aren’t using RStudio you can also get a list of your objects using <code>ls()</code>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">=</span> <span class="dv">5</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "has_annotations" "x"              </code></pre>
+</div>
+</div>
+<p>There are many more objects that R defines internally (ex. <code>mtcars</code>).</p>
 </section>
 <section id="classes" class="level3">
 <h3 class="anchored" data-anchor-id="classes">Classes</h3>
@@ -249,23 +258,23 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>A method is a function that is defined for a particular class of object. For example, the function <code>merge</code> allows you to combine two data.frames that have a shared column. R assumes that the first two arguments you provide it are data.frames, and it may complain if they are not.</p>
 <p>Some functions may have methods defined for multiple classes of objects. For example, you can take the mean of a numeric vector or you can take the mean of a series of Dates.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">20</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">20</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 10.5</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>(next_ten_weeks <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="fu">Sys.Date</span>(), <span class="at">length.out=</span><span class="dv">10</span>, <span class="at">by=</span><span class="st">"1 week"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>(next_ten_weeks <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="fu">Sys.Date</span>(), <span class="at">length.out=</span><span class="dv">10</span>, <span class="at">by=</span><span class="st">"1 week"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code> [1] "2024-02-26" "2024-03-04" "2024-03-11" "2024-03-18" "2024-03-25"
  [6] "2024-04-01" "2024-04-08" "2024-04-15" "2024-04-22" "2024-04-29"</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(next_ten_weeks)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(next_ten_weeks)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "2024-03-28"</code></pre>
 </div>
 </div>
 <p>You can use the <code>methods</code> function to see what classes of objects have methods for a given function.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">methods</span>(mean)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">methods</span>(mean)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] mean.Date     mean.default  mean.difftime mean.POSIXct  mean.POSIXlt 
 [6] mean.quosure*

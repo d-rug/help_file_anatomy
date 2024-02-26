@@ -231,8 +231,20 @@ The Note section is a second Details section for less critical pieces of
 information. In the help file for the data.frame function, it tells us that 
 if we need code to be compatible with versions of R earlier than R 2.4.0, the
 class of our row.names argument needs to be a character vector. While this is
-undoubtedly useful for a very small subset of users, most of us don't need to 
-worry about that.
+undoubtedly useful for a very small subset of users, it isn't relevant for most
+people.
+
+## Author(s)
+
+The Authors(s) section lists the authors who wrote the function or package in
+question. It is more common to see for packages but there are some functions
+that mention specific authors as well, as is the case for `lm()`.
+
+```{r}
+
+?`sf-package`
+
+```
 
 ## References
 
@@ -241,17 +253,20 @@ or data structure developed elsewhere, the References section will include the
 citation for the original source. The References section for the data.frame
 function cites a textbook on the S programming language, R's precursor.
 
-## Author(s)
+![](img/dataframe_references.png)
 
 ## See Also
 
 If the function whose documentation you are reviewing doesn't do exactly what
-you want, this is a good section to puruse. See Also contains links to the
+you want, this is a good section to peruse. See Also contains links to the
 documentation files for functions that are similar to the function to the
 function you are investigating. This could include functions that implement a
 modified formula (like weighted means), or methods that are implemented for a
 different class like the summary method for a linear regression model (`lm`)
-object.
+object. It also may include methods that can be used with a given class of 
+object, like in the case of the lm help file.
+
+![](img/lm_seealso.png)
 
 ## Examples
 

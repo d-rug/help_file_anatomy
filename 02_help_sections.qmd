@@ -23,14 +23,14 @@ below. The sections of an R help file in order are:
   
 ## Title
 
+![](img/summary_title.png)
+
 This is the section at the top of the help file and tells you the name of the 
 documentation page you are looking at as well as the package the documentation
 file is from (enclosed in {}). It also displays a very brief summary of what the
 function does in large lettering. While the title is not something I use
 regularly, I do occasionally need to figure out what package a particular
 function lives in and the title is a great place to do that.
-
-![](img/summary_title.png)
 
 If the package that contains the function is the "base" package, that means it
 is a part of "base" R, or the the set of functions and classes available to you
@@ -40,12 +40,15 @@ you don't need to call them with `require` or `library`.
 
 ## Description
 
+![](img/summary_description.png)
+
 The Description section gives a more detailed description of what the function
 or package does. It is not generally helpful for troubleshooting. However, it is
 useful when trying to determine whether or not a function would suit your needs
 for a particular task.
 
 ## Usage
+
 
 The Usage section is the first regularly useful section, and one of the sections
 I commonly look at when troubleshooting. It is also probably the most difficult 
@@ -111,7 +114,6 @@ value for maxsum is 100. Now, this is one difference between these to versions
 of the summary function, but to determine if this is the reason the outputs 
 are different, we will need to refer to the Arguments section.
 
-
 ## Arguments
 
 The Arguments section lists out the name each argument to the function, what
@@ -122,6 +124,9 @@ function will use every argument. You will need to refer to the Usage section to
 determine if a given argument applies to the function you are using. To figure
 out what the maxsum argument actually does, we refer to the arguments section of
 the `summary()` help file.
+
+![](img/summary_arguments.png)
+
 
 You may see `...` as one of the arguments in the Arguments and Usage sections.
 This "argument" allows you to pass arguments to the function that are not
@@ -148,13 +153,17 @@ necessarily know what arguments will be useful for future R developers. So
 instead, they can include `...` as an argument, and then other packages can
 define additional arguments that will be useful to them.
 
-The plot function is one example of this. Many different packages define new
-classes that benefit from visualization. Instead of creating an entirely new
-function for just that class, the package's creator can make a version of the
-`plot()` that will display objects of their class. The sf package uses this
-functionality. The sf package defines the `sf` class, which stores geographical
-information, like the counties of North Carolina. This is the type of data we
-use to make maps.
+The plot function is one example of this. If you look at the documentation for
+the generic plot function, you can see that there are only a few arguments
+listed, and they seemed to be geared toward X-Y plotting. This is very useful,
+but it is definitely not the only type of plotting you may want to do. 
+
+In fact, many different packages define types of objects (classes) that benefit from visualization.
+Instead of creating an entirely new function for just that class, the package's
+creator can make a version of `plot()` (aka method) that will display objects of their class.
+The sf package uses this functionality. The sf package defines the `sf` class,
+which stores geographical information, like the counties of North Carolina. This
+is the type of data we use to make maps.
 
 ```{r read_nc}
 library(sf)

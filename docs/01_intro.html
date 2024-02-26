@@ -169,6 +169,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#opening-r-documentation" id="toc-opening-r-documentation" class="nav-link" data-scroll-target="#opening-r-documentation">Opening R Documentation</a>
   <ul class="collapse">
   <li><a href="#documentation-duplication" id="toc-documentation-duplication" class="nav-link" data-scroll-target="#documentation-duplication">Documentation Duplication</a></li>
+  </ul></li>
+  <li><a href="#definitions" id="toc-definitions" class="nav-link" data-scroll-target="#definitions">Definitions</a>
+  <ul class="collapse">
   <li><a href="#objects" id="toc-objects" class="nav-link" data-scroll-target="#objects">Objects</a></li>
   <li><a href="#classes" id="toc-classes" class="nav-link" data-scroll-target="#classes">Classes</a></li>
   <li><a href="#functions" id="toc-functions" class="nav-link" data-scroll-target="#functions">Functions</a></li>
@@ -225,9 +228,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="documentation-duplication" class="level3">
 <h3 class="anchored" data-anchor-id="documentation-duplication">Documentation Duplication</h3>
 <p>Sometimes you will have multiple functions that share the same name from different packages. If you use the <code>?</code> operator to open the help file for one of these functions, a page will with links to different documentation pages based on the package you are using. Be sure to click on the link that corresponds to the function you have questions about.</p>
-<p><img src="img/multiple_help_docs.png" class="img-fluid"> ## Definitions</p>
-<p>R documentation uses a couple of terms that are sometimes glossed over at introductory levels. However, without them, many R help files are nigh impossible to read.</p>
 </section>
+</section>
+<section id="definitions" class="level2">
+<h2 class="anchored" data-anchor-id="definitions">Definitions</h2>
+<p>R documentation uses a couple of terms that are sometimes glossed over at introductory levels. However, without them, many R help files are nigh impossible to read.</p>
 <section id="objects" class="level3">
 <h3 class="anchored" data-anchor-id="objects">Objects</h3>
 <p>Objects are all the things you can interact with in R. Whenever you create a variable, you create an object. All of the objects you create will appear in the Environment tab in RStudio. If you aren’t using RStudio you can also get a list of your objects using <code>ls()</code>.</p>
@@ -256,28 +261,55 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="methods" class="level3">
 <h3 class="anchored" data-anchor-id="methods">Methods</h3>
 <p>A method is a function that is defined for a particular class of object. For example, the function <code>merge</code> allows you to combine two data.frames that have a shared column. R assumes that the first two arguments you provide it are data.frames, and it may complain if they are not.</p>
-<p>Some functions may have methods defined for multiple classes of objects. For example, you can take the mean of a numeric vector or you can take the mean of a series of Dates.</p>
+<p>Some functions may have methods defined for multiple classes of objects. For example, you can use the summary function to summarize a vector of numbers or the columns of a data.frame.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">20</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">20</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 10.5</code></pre>
+<pre><code>   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+   1.00    5.75   10.50   10.50   15.25   20.00 </code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>(next_ten_weeks <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="fu">Sys.Date</span>(), <span class="at">length.out=</span><span class="dv">10</span>, <span class="at">by=</span><span class="st">"1 week"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(iris)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code> [1] "2024-02-26" "2024-03-04" "2024-03-11" "2024-03-18" "2024-03-25"
- [6] "2024-04-01" "2024-04-08" "2024-04-15" "2024-04-22" "2024-04-29"</code></pre>
+<pre><code>  Sepal.Length    Sepal.Width     Petal.Length    Petal.Width   
+ Min.   :4.300   Min.   :2.000   Min.   :1.000   Min.   :0.100  
+ 1st Qu.:5.100   1st Qu.:2.800   1st Qu.:1.600   1st Qu.:0.300  
+ Median :5.800   Median :3.000   Median :4.350   Median :1.300  
+ Mean   :5.843   Mean   :3.057   Mean   :3.758   Mean   :1.199  
+ 3rd Qu.:6.400   3rd Qu.:3.300   3rd Qu.:5.100   3rd Qu.:1.800  
+ Max.   :7.900   Max.   :4.400   Max.   :6.900   Max.   :2.500  
+       Species  
+ setosa    :50  
+ versicolor:50  
+ virginica :50  
+                
+                
+                </code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(next_ten_weeks)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] "2024-03-28"</code></pre>
 </div>
-</div>
+<p>If you want to look up documentation for a specific method, you use the schema [FUNCTION NAME].[CLASS NAME]. For example, if we want to look up documentation for the <code>summary</code> method for the class <code>lm</code>, we would use the code <code>?summary.lm</code>.</p>
 <p>You can use the <code>methods</code> function to see what classes of objects have methods for a given function.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">methods</span>(mean)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">methods</span>(summary) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] mean.Date     mean.default  mean.difftime mean.POSIXct  mean.POSIXlt 
-[6] mean.quosure*
+<pre><code> [1] summary.aov                         summary.aovlist*                   
+ [3] summary.aspell*                     summary.check_packages_in_dir*     
+ [5] summary.connection                  summary.data.frame                 
+ [7] summary.Date                        summary.default                    
+ [9] summary.ecdf*                       summary.factor                     
+[11] summary.glm                         summary.infl*                      
+[13] summary.lm                          summary.loess*                     
+[15] summary.manova                      summary.matrix                     
+[17] summary.mlm*                        summary.nls*                       
+[19] summary.packageStatus*              summary.POSIXct                    
+[21] summary.POSIXlt                     summary.ppr*                       
+[23] summary.prcomp*                     summary.princomp*                  
+[25] summary.proc_time                   summary.rlang_error*               
+[27] summary.rlang_message*              summary.rlang_trace*               
+[29] summary.rlang_warning*              summary.rlang:::list_of_conditions*
+[31] summary.srcfile                     summary.srcref                     
+[33] summary.stepfun                     summary.stl*                       
+[35] summary.table                       summary.tukeysmooth*               
+[37] summary.warnings                   
 see '?methods' for accessing help and source code</code></pre>
 </div>
 </div>

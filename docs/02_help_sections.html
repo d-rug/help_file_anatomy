@@ -218,12 +218,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="title" class="level2">
 <h2 class="anchored" data-anchor-id="title">Title</h2>
-<p>This is the section at the top of the help file and tells you the name of the documentation page you are looking at as well as the package the documentation file is from (enclosed in {}). It also displays a very brief summary of what the function does in large lettering. While the title is not something I use regularly, I do occasionally need to figure out what package a particular function lives in and the title is a great place to do that.</p>
 <p><img src="img/summary_title.png" class="img-fluid"></p>
+<p>This is the section at the top of the help file and tells you the name of the documentation page you are looking at as well as the package the documentation file is from (enclosed in {}). It also displays a very brief summary of what the function does in large lettering. While the title is not something I use regularly, I do occasionally need to figure out what package a particular function lives in and the title is a great place to do that.</p>
 <p>If the package that contains the function is the “base” package, that means it is a part of “base” R, or the the set of functions and classes available to you whenever you open an R session. The packages stats, graphics, utils, datasets, methods, and grDevices are also always loaded whenever you open an R session, so you don’t need to call them with <code>require</code> or <code>library</code>.</p>
 </section>
 <section id="description" class="level2">
 <h2 class="anchored" data-anchor-id="description">Description</h2>
+<p><img src="img/summary_description.png" class="img-fluid"></p>
 <p>The Description section gives a more detailed description of what the function or package does. It is not generally helpful for troubleshooting. However, it is useful when trying to determine whether or not a function would suit your needs for a particular task.</p>
 </section>
 <section id="usage" class="level2">
@@ -289,6 +290,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="arguments" class="level2">
 <h2 class="anchored" data-anchor-id="arguments">Arguments</h2>
 <p>The Arguments section lists out the name each argument to the function, what class of object it needs to be, and a description of what the argument does. It is probably the section I use most commonly use when troubleshooting. If there are multiple functions listed in the Usage section, it is possible not every function will use every argument. You will need to refer to the Usage section to determine if a given argument applies to the function you are using. To figure out what the maxsum argument actually does, we refer to the arguments section of the <code>summary()</code> help file.</p>
+<p><img src="img/summary_arguments.png" class="img-fluid"></p>
 <p>You may see <code>...</code> as one of the arguments in the Arguments and Usage sections. This “argument” allows you to pass arguments to the function that are not explicitly listed in the function’s documentation. This is typically done for two reasons.</p>
 <p>First, the function’s author many not want to restrict the number of arguments you can provide to the function. This is the case for functions like <code>sum()</code> and <code>data.frame()</code>. It would be pretty silly for the R developers to limit the number of columns you could create a data.frame with.</p>
 <div class="cell">
@@ -314,7 +316,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <p>Second, the author of a given function may want to allow other packages to expand the functionality of that function. However, the original author won’t necessarily know what arguments will be useful for future R developers. So instead, they can include <code>...</code> as an argument, and then other packages can define additional arguments that will be useful to them.</p>
-<p>The plot function is one example of this. Many different packages define new classes that benefit from visualization. Instead of creating an entirely new function for just that class, the package’s creator can make a version of the <code>plot()</code> that will display objects of their class. The sf package uses this functionality. The sf package defines the <code>sf</code> class, which stores geographical information, like the counties of North Carolina. This is the type of data we use to make maps.</p>
+<p>The plot function is one example of this. If you look at the documentation for the generic plot function, you can see that there are only a few arguments listed, and they seemed to be geared toward X-Y plotting. This is very useful, but it is definitely not the only type of plotting you may want to do.</p>
+<p>In fact, many different packages define types of objects (classes) that benefit from visualization. Instead of creating an entirely new function for just that class, the package’s creator can make a version of <code>plot()</code> (aka method) that will display objects of their class. The sf package uses this functionality. The sf package defines the <code>sf</code> class, which stores geographical information, like the counties of North Carolina. This is the type of data we use to make maps.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(sf)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">

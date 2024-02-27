@@ -44,6 +44,20 @@ If you are using RStudio this will bring up documentation for that function in
 help window. If you use the GUI, it will open a separate help window. If you are
 running R in bash or zsh, R will open the help file in your default text editor.
 
+
+Not all packages have help files, but many do. To load the help file for a
+package, you need to add `-package` onto the name of the package. Since 
+R does not view "sf-package" as a single word, we need to surround it in tick
+marks (`).
+
+```{r}
+
+#load documentation for the sf package
+?`sf-package`
+
+```
+
+
 If you are unsure of the function name, you can use the `??` operator to search
 all of your R documentation for a term or set of terms. For multiple search
 terms, enclose them in tick marks. The `??` operator is equivalent to the

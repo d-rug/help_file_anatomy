@@ -141,7 +141,13 @@ more information on functions, see DataLab's [Calling Functions][cfun] and
 
 #### Arguments
 An argument is an input to a function. Not all functions require arguments, but
-most do. 
+most do. Almost all arguments in R have names. Ideally argument name would tell
+you something about what the argument does, but that is not always the case. The
+name of the first three arguments to the lm function are `formula`, `data`, and
+`subset`, which are relatively informative. On the other hand, `sqrt()`'s
+singular argument `x` doesn't give us very much information. Then again, taking
+the square root is much less complicated than fitting a linear regression. There
+are a few functions with unnamed arguments, but we will discuss that later.
 
 ### Methods
 A method is a function that is defined for a particular class of object. For
@@ -160,10 +166,9 @@ summary(iris)
 
 ```
 
-If you want to look up documentation for a specific method, you use the schema
-[FUNCTION NAME].[CLASS NAME]. For example, if we want to look up documentation
-for the `summary` method for the class `lm`, we would use the code 
-`?summary.lm`.
+To look up documentation for a specific method, use the schema [FUNCTION
+NAME].[CLASS NAME]. For example, if we want to look up documentation for the
+`summary` method for the class `lm`, we would use the code `?summary.lm`.
 
 You can use the `methods` function to see what classes of objects have methods
 for a given function.

@@ -6,21 +6,22 @@ format: html
 ## Looking for Help
 
 When programming, it is not a matter of if you get stuck, or even when you get
-stuck, but how much time will you spend stuck. I've personally had problems last
-weeks or even months. Thankfully R has a wide variety of tools to help you get
-unstuck, from built-in documentation, to mailing lists, to help groups like the
-Davis R Users Group.
+stuck, but how much time will you spend stuck. Some problems can be resolved in
+minutes where as others may last weeks or even months. Thankfully R has a wide
+variety of tools to help you get unstuck, from built-in documentation, to
+mailing lists, to help groups like the Davis R Users Group. 
 
 If you have ever asked for coding help, you may have gotten the response "Have
 you checked the documentation?". This is the programming equivalent of asking
 if you have read the manual. And like many manuals, R documentation often seems
 like it was written for someone who already knows what they are doing. This is
-all well and good if you do know what you are doing. However, 
+all well and good if you do know what you are doing. However, it doesn't help
+much if the documentation itself is a source of confusion.
 
-The basic unit of documentation in R is the R help file. While they may be 
-difficult to decipher at first, they are all difficult in the same way. So once
-you understand one of them, understanding the rest will be much easier. Most 
-R help files focus on a particular function, like `mean()`. However, many
+The basic unit of documentation in R is the R help file. While help files may be
+difficult to decipher at first, they are all difficult in the same way. That
+means once you understand one of them, understanding the rest is much easier.
+Most R help files focus on a particular function, like `mean()`. However, many
 packages and built-in data sets like `mtcars` also have help pages.
 
 ## Opening R Documentation
@@ -47,7 +48,7 @@ running R in bash or zsh, R will open the help file in your default text editor.
 
 Not all packages have help files, but many do. To load the help file for a
 package, you need to add `-package` onto the name of the package. Since 
-R does not view "sf-package" as a single word, we need to surround it in tick
+R does not view "sf-package" as a single word, you need to surround it in tick
 marks (`).
 
 ```{r}

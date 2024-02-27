@@ -24,6 +24,6 @@ format:
     theme: cosmo
     number-sections: false
   pdf: 
-    theme: cosmo
+    documentclass: scrreport
     number-sections: true
     

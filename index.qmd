@@ -6,7 +6,7 @@ format:
 ---
 
 
-# Description {.unnumbered}
+## Description
 
 The R programming language has a vast and sprawling documentation library, and
 a lot of it is in a standardized format: the R help file. Unfortunately, R help 
@@ -18,7 +18,7 @@ and on the internet.
 
 **Workshop site:** https://d-rug.github.io/help_file_anatomy/
 
-# Learning Goals {.unnumbered}
+## Learning Goals {.unnumbered}
 
   * Know where to look for R documentation depending on what type of question 
   you need answered
@@ -28,7 +28,7 @@ and on the internet.
   * Know which help file sections to look at depending on what type of problem
   you have
   
-# Setup {.unnumbered}
+## Setup
 
 ```{r message=FALSE}
 

@@ -5,27 +5,23 @@ format: html
 
 ## Looking for Help
 
-Whether it is a pesky error message or a function you can't seem to get to do
-what you want, if you code, chances are you have already run into a few problems
-today. When programming, it is not a matter of if you get stuck, or even when
-you get stuck, but how much time will you spend stuck. Thankfully R has a wide
-variety of tools to help you get unstuck, from built-in documentation, to 
-mailing lists, to help groups like the Davis R Users Group. 
+When programming, it is not a matter of if you get stuck, or even when you get
+stuck, but how much time will you spend stuck. I've personally had problems last
+weeks or even months. Thankfully R has a wide variety of tools to help you get
+unstuck, from built-in documentation, to mailing lists, to help groups like the
+Davis R Users Group.
 
 If you have ever asked for coding help, you may have gotten the response "Have
-you checked the documentation?", which is the programming equivalent of asking
-if you have read the manual. This is all well and good if you are proficient
-with computer speak, but for most beginners that is not the case. It doesn't 
-help that R documentation sometimes seems to be written from the perspective of
-helping a computer programmer who just doesn't know R syntax, instead of helping
-a new coder who is completely confused.
+you checked the documentation?". This is the programming equivalent of asking
+if you have read the manual. And like many manuals, R documentation often seems
+like it was written for someone who already knows what they are doing. This is
+all well and good if you do know what you are doing. However, 
 
-If you spent enough time puzzling over the R documentation, you could figure it
-out eventually. However, to avoid the wailing and gnashing of teeth that may
-require, this tutorial will explain what should be your first stop any time you
-run into a problem in R: the R help file. The good news is that they are all
-structured the same way, so once you understand one of them, understanding the
-rest will be much easier.
+The basic unit of documentation in R is the R help file. While they may be 
+difficult to decipher at first, they are all difficult in the same way. So once
+you understand one of them, understanding the rest will be much easier. Most 
+R help files focus on a particular function, like `mean()`. However, many
+packages and built-in data sets like `mtcars` also have help pages.
 
 ## Opening R Documentation
 

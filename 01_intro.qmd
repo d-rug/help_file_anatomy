@@ -139,7 +139,7 @@ The `length` function tells you the number of elements in a vector or list. For
 more information on functions, see DataLab's [Calling Functions][cfun] and
 [Functions][funs] sections of the R Basics reader.
 
-#### Arguments
+### Arguments
 An argument is an input to a function. Not all functions require arguments, but
 most do. Almost all arguments in R have names. Ideally argument name would tell
 you something about what the argument does, but that is not always the case. The

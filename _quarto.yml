@@ -23,3 +23,7 @@ format:
   html:
     theme: cosmo
     number-sections: false
+  pdf: 
+    theme: cosmo
+    number-sections: true
+    

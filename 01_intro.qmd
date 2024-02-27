@@ -65,11 +65,11 @@ marks (`).
 
 
 If you are unsure of the function name, you can use the `??` operator to search
-all of your R documentation for a term or set of terms. For multiple search
-terms, enclose them in tick marks. The `??` operator is equivalent to the
+all of your local R documentation for a term or set of terms. For multiple
+search terms, enclose them in tick marks. The `??` operator is equivalent to the
 function `help.search()`, but for help.search you enclose your search term in
 quotes. The help.search function also gives you more control over what you are
-searching.
+searching. 
 
 ```{r}
 
@@ -82,10 +82,10 @@ help.search('linear model', fields='title')
 
 
 This will search documentation for all packages you have **installed**. It will
-then provide a list links to documentation pages you can browse and use to find
-the function that works best for your use case. Functions are labeled using the 
-schema [PACKAGE NAME]::[FUNCTION NAME] so you can tell which package to load to 
-access function you are interested in.
+then provide a list links to documentation pages you can use to find the
+function that works best. Functions are labeled using the schema [PACKAGE
+NAME]::[FUNCTION NAME] so you can tell which package to load to access function
+you are interested in.
 
 If you want to search documentation for packages that you haven't installed yet,
 you have a couple of options. If you are only looking for packages that are

@@ -53,8 +53,8 @@ function.
 
 Every Usage section will have at least one example function call with
 the named arguments listed out. Arguments with an `=` after them have a default
-value and therefore do not necessarily need to be provided when using the
-function, assuming you don't mind the default values. If there is no `=` after
+value. This means you don't necessarily need to provide a value for that argument when calling the function. However it is important to check that you are okay 
+with whatever the default value is. If there is no `=` after
 the argument, it is a required argument and you will need to provide it each 
 time you call the function. The Usage section does not describe what each
 argument does. For that, you need to go to the Arguments section, which we will
@@ -70,16 +70,14 @@ for the header argument is `FALSE` for `read.table` but `TRUE` for `read.csv`.
 
 If there is more than one example function call of the same function in the
 Usage section, that generally means that there is more than one version of the
-function R can use. Which version of the function R uses depends on the object
-class of the first argument passed to the function. Methods refer to functions
-that are specific to a given class of object.
-
-When there is more than one method listed in a given documentation file,
-the file will tell you which class of object that particular method applies to
-using a comment just above the function call with language like "method for class X" or
-"method for signature X". This tells you that the arguments listed inside that
-call are the arguments you need to run that method if your first argument has a
-class of X, as well as the default values.
+function (method). Which method R uses depends on the object class of the first
+argument passed to the function. When there is more than one method listed in a
+given documentation file, the file will tell you which class of object that
+particular method applies to using a comment just above the function call with
+language like "method for class X" or "method for signature X". This tells you
+that the arguments listed inside that call are the arguments you need to run
+that method if your first argument has a class of X, as well as the default
+values for that method.
 
 For example, if we summarize survey data from the [General Social Survey][gss]
 as a data.frame, R displays a maximum of 7 different values for categorical
@@ -102,23 +100,28 @@ summary(gss_cat$relig)
 
 ```
 
-Going back to the documentation for `summary()`, we can see that for a 
-data.frame the default value for maxsum is 7, while for a factor, the default 
-value for maxsum is 100. Now, this is one difference between these to versions
-of the summary function, but to determine if this is the reason the outputs 
-are different, we will need to refer to the Arguments section.
+Going back to the documentation for `summary()`, we can see that for a
+data.frame the default value for maxsum is 7, while for a factor, the default
+value for maxsum is 100. Now, this is one difference between these two summary
+methods, but to determine if this is the reason the outputs are different, we
+will need to refer to the Arguments section.
 
 ## Arguments
 
-The Arguments section lists out the name each argument to the function, what
-class of object it needs to be, and a description of what the argument does. It
-is probably the section I use most commonly use when troubleshooting. If there
-are multiple functions listed in the Usage section, it is possible not every
-function will use every argument. You will need to refer to the Usage section to
-determine if a given argument applies to the function you are using. To figure
-out what the maxsum argument actually does, we refer to the arguments section of
-the `summary()` help file.
+The Arguments section lists out the name each argument to the function, the
+required class for that argument, and a description of what the argument does.
+It is probably the section I use most commonly use when troubleshooting. If
+there are multiple functions listed in the Usage section, it is possible not
+every function will use every argument. You will need to refer to the Usage
+section to determine if a given argument applies to the function you are using.
 
+
+To figure out what the maxsum argument actually does, we refer to the arguments
+section of the `summary()` help file. This tells us that maxsum determines the 
+maximum number of values that should be displayed for factors. This matches the
+change in behavior we saw in `summary` above.
+
+### The ... Argument
 
 You may see `...` as one of the arguments in the Arguments and Usage sections.
 This "argument" allows you to pass arguments to the function that are not
@@ -126,9 +129,7 @@ explicitly listed in the function's documentation. This is typically done for
 two reasons.
 
 First, the function's author many not want to restrict the number of arguments
-you can provide to the function. This is the exception to the rule that all
-arguments R functions are named. If you don't want to have a set number of
-arguments, you can't give those arguments names. This is the case for functions
+you can provide to the function.  This is the case for functions
 like `sum()` and `data.frame()`. It would be very inconvenient if the R 
 developers restricted the number of columns you could create a data.frame with.
 
@@ -141,8 +142,12 @@ data.frame(1:12, month.name, month.abb)
 
 ```
 
+This is the exception to the rule that all arguments R functions are named. If
+you don't want to have a set number of arguments, you can't give those arguments
+names.
+
 Second, the author of a given function may want to allow other packages to 
-expand the functionality of that function. However, the original author won't
+expand the use cases of that function. However, the original author won't
 necessarily know what arguments will be useful for future R developers. So 
 instead, they can include `...` as an argument, and then other packages can
 define additional arguments that will be useful to them.
@@ -164,7 +169,7 @@ The sf package uses this functionality. The sf package defines the `sf` class,
 which stores geographical information, like the counties of North Carolina. This
 is the type of data we use to make maps.
 
-```{r read_nc}
+```{r read_nc, message=FALSE}
 library(sf)
 
 #read in North Carolina data

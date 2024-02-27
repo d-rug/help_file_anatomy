@@ -288,27 +288,27 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h2 class="anchored" data-anchor-id="arguments">Arguments</h2>
 <p>The Arguments section lists out the name each argument to the function, what class of object it needs to be, and a description of what the argument does. It is probably the section I use most commonly use when troubleshooting. If there are multiple functions listed in the Usage section, it is possible not every function will use every argument. You will need to refer to the Usage section to determine if a given argument applies to the function you are using. To figure out what the maxsum argument actually does, we refer to the arguments section of the <code>summary()</code> help file.</p>
 <p>You may see <code>...</code> as one of the arguments in the Arguments and Usage sections. This “argument” allows you to pass arguments to the function that are not explicitly listed in the function’s documentation. This is typically done for two reasons.</p>
-<p>First, the function’s author many not want to restrict the number of arguments you can provide to the function. This is the case for functions like <code>sum()</code> and <code>data.frame()</code>. It would be pretty silly for the R developers to limit the number of columns you could create a data.frame with.</p>
+<p>First, the function’s author many not want to restrict the number of arguments you can provide to the function. This is the exception to the rule that all arguments R functions are named. If you don’t want to have a set number of arguments, you can’t give those arguments names. This is the case for functions like <code>sum()</code> and <code>data.frame()</code>. It would be very inconvenient if the R developers restricted the number of columns you could create a data.frame with.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>, <span class="dv">99</span>, <span class="dv">21</span><span class="sc">:</span><span class="dv">91</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>, <span class="dv">99</span>, <span class="dv">21</span><span class="sc">:</span><span class="dv">91</span>, <span class="sc">-</span><span class="dv">39</span><span class="sc">:</span><span class="dv">45</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 4130</code></pre>
+<pre><code>[1] 4385</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">data.frame</span>(<span class="at">x=</span><span class="dv">1</span><span class="sc">:</span><span class="dv">12</span>, <span class="at">y=</span>month.name, <span class="at">z=</span>month.abb)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">data.frame</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">12</span>, month.name, month.abb)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>    x         y   z
-1   1   January Jan
-2   2  February Feb
-3   3     March Mar
-4   4     April Apr
-5   5       May May
-6   6      June Jun
-7   7      July Jul
-8   8    August Aug
-9   9 September Sep
-10 10   October Oct
-11 11  November Nov
-12 12  December Dec</code></pre>
+<pre><code>   X1.12 month.name month.abb
+1      1    January       Jan
+2      2   February       Feb
+3      3      March       Mar
+4      4      April       Apr
+5      5        May       May
+6      6       June       Jun
+7      7       July       Jul
+8      8     August       Aug
+9      9  September       Sep
+10    10    October       Oct
+11    11   November       Nov
+12    12   December       Dec</code></pre>
 </div>
 </div>
 <p>Second, the author of a given function may want to allow other packages to expand the functionality of that function. However, the original author won’t necessarily know what arguments will be useful for future R developers. So instead, they can include <code>...</code> as an argument, and then other packages can define additional arguments that will be useful to them.</p>

@@ -99,11 +99,11 @@ to CRAN and bioconductor, you can use [rdrr.io][rdrr].
 
 ### Documentation Duplication
 
-Sometimes you will have multiple functions that share the same name from 
-different packages. If you use the `?` operator to open the help file for one
-of these functions, a page will with links to different documentation pages
-based on the package you are using. Be sure to click on the link that
-corresponds to the function you have questions about.
+Sometimes you will have functions from different packages that share the same
+name. If you use the `?` operator to open the help file for one of these
+functions, a page will open with links to different documentation pages based on
+the package you are using. Be sure to click on the link that corresponds to the
+function you have questions about.
 
 
 ## Definitions
@@ -112,32 +112,6 @@ R documentation uses a couple of terms that are sometimes glossed over
 at introductory levels. However, without them, many R help files are nigh 
 impossible to read.
 
-### Objects
-
-Objects are all the things you can interact with in R. Whenever you create a
-variable, you create an object. All of the objects you create will appear in the
-Environment tab in RStudio. If you aren't using RStudio you can also get a list
-of your objects using `ls()`. 
-
-```{r}
-
-x = 5
-
-ls()
-
-```
-
-
-There are many more objects that R defines internally (ex. `mtcars`).
-  
-### Classes
-A class is the blueprint for the structure of an object. It defines how you can
-interact with the object and what types of information it can contain. To
-determine the class of an object, you can use the function `class()`. Common
-examples of classes include integers, characters, data.frames, and lists. For
-more information on classes, see the [Data Types and Classes][type] section of
-DataLab's R Basics reader.
-  
 ### Functions  
 A function is a reusable set of instructions that performs a certain task. For
 example, the `sqrt` function takes the square root of a given number or numbers.
@@ -155,6 +129,35 @@ singular argument `x` doesn't give us very much information. Then again, taking
 the square root is much less complicated than fitting a linear regression. There
 are a few functions with unnamed arguments, but we will discuss that later.
 
+
+### Objects
+
+Everything you can interact with in R is an object. Whenever you create a
+variable, you create an object. All of the objects you create will appear in the
+Environment tab in RStudio. If you aren't using RStudio you can also get a list
+of objects you created using `ls()`. 
+
+```{r}
+
+x = 5
+
+ls()
+
+```
+
+
+There are many more objects that R defines internally. R includes many built-in
+data sets (ex. `mtcars`), all of which are objects. Every function you use is
+also an object.
+  
+### Classes
+A class is the blueprint for the structure of an object. It defines how you can
+interact with the object and what types of information it can contain. To
+determine the class of an object, you can use the function `class()`. Common
+examples of classes include integers, characters, data.frames, lists, and
+functions. For more information on classes, see the 
+[Data Types and Classes][type] section of DataLab's R Basics reader.
+  
 ### Methods
 A method is a function that is defined for a particular class of object. For
 example, the function `merge` allows you to combine two data.frames that have a

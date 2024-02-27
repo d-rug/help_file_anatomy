@@ -5,6 +5,11 @@ format: html
 
 ## Looking for Help
 
+```{r, echo=FALSE, message=FALSE}
+library(sf)
+```
+
+
 When programming, it is not a matter of if you get stuck, or even when you get
 stuck, but how much time will you spend stuck. Some problems can be resolved in
 minutes where as others may last weeks or even months. Thankfully R has a wide

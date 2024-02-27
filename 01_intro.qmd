@@ -160,13 +160,14 @@ functions. For more information on classes, see the
   
 ### Methods
 A method is a function that is defined for a particular class of object. For
-example, the function `merge` allows you to combine two data.frames that have a
-shared column. R assumes that the first two arguments you provide it are
-data.frames, and it may complain if they are not. 
+example, the function `st_area` calculates the area of a set of shapes 
+However, it only works for objects of the sf class, a type of object that stores
+geographical information. R assumes that the first argument you provide to 
+`st_area` has the class sf, and if it doesn't you will get an error message.
 
-Some functions may have methods defined for multiple classes of objects. For
-example, you can use the summary function to summarize a vector of numbers or
-the columns of a data.frame.
+Some functions may have methods defined for many different classes of objects.
+For example, you can use the summary function to summarize a vector of numbers
+or the columns of a data.frame.
 
 ```{r}
 summary(1:20)
@@ -174,10 +175,6 @@ summary(1:20)
 summary(iris)
 
 ```
-
-To look up documentation for a specific method, use the schema [FUNCTION
-NAME].[CLASS NAME]. For example, if we want to look up documentation for the
-`summary` method for the class `lm`, we would use the code `?summary.lm`.
 
 You can use the `methods` function to see what classes of objects have methods
 for a given function.
@@ -188,10 +185,13 @@ methods(summary)
 
 ```
 
+To look up documentation for a specific method, use the schema [FUNCTION
+NAME].[CLASS NAME]. For example, if we want to look up documentation for the
+`summary` method for the class `lm`, we would use the code `?summary.lm`.
 
 This system of objects, classes, and methods is called Object-Oriented
 Programming (OOP). Object oriented programming is not unique to R, but R does it
-a little differently. If you want a deeper understanding of methods, the 
+a little differently. If you want a deeper understanding of methods in R, the 
 [S3 section][s3] of the Intermediate R reader describes the most widely used
 system of OOP in R. Additionally, [Advanced R][oop] by Hadley Wickham provides a
 more complete description of the various OOP systems available in R as well as

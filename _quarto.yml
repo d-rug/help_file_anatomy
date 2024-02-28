@@ -26,4 +26,3 @@ format:
   pdf: 
     documentclass: scrreport
     number-sections: true
-    

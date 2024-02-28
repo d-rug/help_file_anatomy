@@ -297,6 +297,10 @@ right off the bat. That does not mean the code is not useful. The key is to use
 this code as a starting point, code that you know runs, and then work from
 there.
 
+## Further Reading
+
+  * [Getting Help with R]
+
 [title_l]: https://d-rug.github.io/help_file_anatomy/02_help_sections.html#title
 [desc]: https://d-rug.github.io/help_file_anatomy/02_help_sections.html#description
 [use]: https://d-rug.github.io/help_file_anatomy/02_help_sections.html#usage

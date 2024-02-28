@@ -1,8 +1,5 @@
 ---
 title: "Overview"
-format:
-  html:
-    theme: cosmo
 ---
 
 
@@ -16,7 +13,6 @@ of the R help file, how to read them, and when they are the most useful. It
 will also introduce you a number of ways to search R documentation, both from R
 and on the internet.
 
-test
 
 **Workshop site:** https://d-rug.github.io/help_file_anatomy/
 

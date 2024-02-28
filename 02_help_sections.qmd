@@ -1,6 +1,5 @@
 ---
 title: "Reading R Help Files"
-format: html
 ---
 
 ## Sections of an R Help File

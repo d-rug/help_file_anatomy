@@ -9,7 +9,7 @@ book:
   
   search: true
   repo-url: https://github.com/d-rug/help_file_anatomy
-  downloads: [pdf]
+  downloads: pdf
   chapters:
     - index.qmd
     - 01_intro.qmd

@@ -16,7 +16,7 @@ variety of tools to help you get unstuck, from built-in documentation, to
 mailing lists, to help groups like the Davis R Users Group. 
 
 If you have ever asked for coding help, you may have gotten the response "Have
-you checked the documentation?". This is the programming equivalent of asking
+you checked the documentation". This is the programming equivalent of asking
 if you have read the manual. And like many manuals, R documentation often seems
 like it was written for someone who already knows what they are doing. This is
 all well and good if you do know what you are doing. However, it doesn't help
@@ -25,16 +25,17 @@ much if the documentation itself is a source of confusion.
 The basic unit of documentation in R is the R help file. While help files may be
 difficult to decipher at first, they are all difficult in the same way. That
 means once you understand one of them, understanding the rest is much easier.
-Most R help files focus on a particular function, like `mean()`. However, many
-packages and built-in data sets like `mtcars` also have help pages.
+Most R help files focus on a particular function, like `summary()`, which
+summarizes various types of data in R. However, many packages and built-in data
+sets like `mtcars` also have help pages.
 
 ## Opening R Documentation
 
-You can access R help files in several ways. If you know the name of the 
+You can access R help files in several ways. If you know the name of the
 function or package you are looking for information about, you can use the `?`
-operator with the name of the function to open the R help file. This will only 
-open documentation for functions and packages you currently have **loaded** 
-into R. This is also equivalent to using the `help()` function
+operator in the console with the name of the function to open the R help file.
+This will only open documentation for functions and packages you currently have
+**loaded** into R. This is also equivalent to using the `help()` function.
 
 ```{r}
 
@@ -49,11 +50,10 @@ If you are using RStudio this will bring up documentation for that function in
 help window. If you use the GUI, it will open a separate help window. If you are
 running R in bash or zsh, R will open the help file in your default text editor.
 
-
-Not all packages have help files, but many do. To load the help file for a
-package, you need to add `-package` onto the name of the package. Since 
-R does not view "sf-package" as a single word, you need to surround it in tick
-marks (`).
+Not all packages have help files the way functions do, but it is getting more
+common. To load the help file for a package, you need to add `-package` onto the
+name of the package. Since R does not view "sf-package" as a single word, you
+need to surround it in tick marks (`).
 
 ```{r}
 
@@ -68,7 +68,7 @@ all of your local R documentation for a term or set of terms. For multiple
 search terms, enclose them in tick marks. The `??` operator is equivalent to the
 function `help.search()`, but for help.search you enclose your search term in
 quotes. The help.search function also gives you more control over what you are
-searching. 
+searching for. 
 
 ```{r}
 
@@ -96,14 +96,17 @@ the website and you have to know what package you want information on. If you
 also want to be able to search packages hosted on R-forge and Github in addition
 to CRAN and bioconductor, you can use [rdrr.io][rdrr].
 
-### Documentation Duplication
-
+:::{.callout-caution}
+## Documentation Duplication
 Sometimes you will have functions from different packages that share the same
-name. If you use the `?` operator to open the help file for one of these
-functions, a page will open with links to different documentation pages based on
-the package you are using. Be sure to click on the link that corresponds to the
-function you have questions about.
+name. For example, the stats package and the dplyr package both have functions
+called `filter`, but one is used for filtering time series and the other subsets
+data.frames by row. If you use the `?` operator to open the help file for one of
+these functions, a page will open with links to different documentation pages
+based on the package you are using. Be sure to click on the link that
+corresponds to the function you have questions about.
 
+:::
 
 ## Definitions
 
@@ -112,28 +115,29 @@ at introductory levels. However, without them, many R help files are nigh
 impossible to read.
 
 ### Functions  
-A function is a reusable set of instructions that performs a certain task. For
+A function is a pre-programmed set of instructions that performs a certain task. For
 example, the `sqrt` function takes the square root of a given number or numbers.
 The `length` function tells you the number of elements in a vector or list. For
 more information on functions, see DataLab's [Calling Functions][cfun] and
 [Functions][funs] sections of the R Basics reader.
 
 ### Arguments
-An argument is an input to a function. Not all functions require arguments, but
-most do. Almost all arguments in R have names. Ideally argument name would tell
-you something about what the argument does, but that is not always the case. The
-name of the first three arguments to the lm function are `formula`, `data`, and
-`subset`, which are relatively informative. On the other hand, `sqrt()`'s
-singular argument `x` doesn't give us very much information. Then again, taking
-the square root is much less complicated than fitting a linear regression. There
-are a few functions with unnamed arguments, but we will discuss that later.
+An argument is an input to a function, the information the function needs in
+order to work. Not all functions require arguments, but most do. Almost all
+arguments in R have names. Ideally argument name would tell you something about
+what the argument does, but that is not always the case. The name of the first
+three arguments to the lm function are `formula`, `data`, and `subset`, which
+are relatively informative. On the other hand, `sqrt()`'s singular argument `x`
+doesn't give us very much information, which is why the the Arguments section of
+help files are is important. There are a few functions with unnamed arguments,
+but we will discuss that later.
 
 
 ### Objects
 
 Everything you can interact with in R is an object. Whenever you create a
 variable, you create an object. All of the objects you create will appear in the
-Environment tab in RStudio. If you aren't using RStudio you can also get a list
+Environment tab in RStudio. If you aren't using RStudio, you can also get a list
 of objects you created using `ls()`. 
 
 ```{r}
@@ -159,14 +163,15 @@ functions. For more information on classes, see the
   
 ### Methods
 A method is a function that is defined for a particular class of object. For
-example, the function `st_area` calculates the area of a set of shapes 
+example, the function `st_area` calculates the area of a set of shapes. 
 However, it only works for objects of the sf class, a type of object that stores
 geographical information. R assumes that the first argument you provide to 
 `st_area` has the class sf, and if it doesn't you will get an error message.
 
 Some functions may have methods defined for many different classes of objects.
 For example, you can use the summary function to summarize a vector of numbers
-or the columns of a data.frame.
+or the columns of a data.frame. The internal code for the function automatically
+determines the class of the input data and applies the correct method for you.
 
 ```{r}
 summary(1:20)
@@ -188,6 +193,9 @@ To look up documentation for a specific method, use the schema [FUNCTION
 NAME].[CLASS NAME]. For example, if we want to look up documentation for the
 `summary` method for the class `lm`, we would use the code `?summary.lm`.
 
+:::{.callout-note}
+## Advanced Topic
+
 This system of objects, classes, and methods is called Object-Oriented
 Programming (OOP). Object oriented programming is not unique to R, but R does it
 a little differently. If you want a deeper understanding of methods in R, the 
@@ -195,6 +203,10 @@ a little differently. If you want a deeper understanding of methods in R, the
 system of OOP in R. Additionally, [Advanced R][oop] by Hadley Wickham provides a
 more complete description of the various OOP systems available in R as well as
 their trade-offs.
+
+
+:::
+
 
 
 [dply]: https://cran.r-project.org/web/packages/dplyr/index.html

@@ -173,10 +173,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
    
   <ul>
   <li><a href="#looking-for-help" id="toc-looking-for-help" class="nav-link active" data-scroll-target="#looking-for-help">Looking for Help</a></li>
-  <li><a href="#opening-r-documentation" id="toc-opening-r-documentation" class="nav-link" data-scroll-target="#opening-r-documentation">Opening R Documentation</a>
-  <ul class="collapse">
-  <li><a href="#documentation-duplication" id="toc-documentation-duplication" class="nav-link" data-scroll-target="#documentation-duplication">Documentation Duplication</a></li>
-  </ul></li>
+  <li><a href="#opening-r-documentation" id="toc-opening-r-documentation" class="nav-link" data-scroll-target="#opening-r-documentation">Opening R Documentation</a></li>
   <li><a href="#definitions" id="toc-definitions" class="nav-link" data-scroll-target="#definitions">Definitions</a>
   <ul class="collapse">
   <li><a href="#functions" id="toc-functions" class="nav-link" data-scroll-target="#functions">Functions</a></li>
@@ -213,12 +210,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="looking-for-help" class="level2">
 <h2 class="anchored" data-anchor-id="looking-for-help">Looking for Help</h2>
 <p>When programming, it is not a matter of if you get stuck, or even when you get stuck, but how much time will you spend stuck. Some problems can be resolved in minutes where as others may last weeks or even months. Thankfully R has a wide variety of tools to help you get unstuck, from built-in documentation, to mailing lists, to help groups like the Davis R Users Group.</p>
-<p>If you have ever asked for coding help, you may have gotten the response “Have you checked the documentation?”. This is the programming equivalent of asking if you have read the manual. And like many manuals, R documentation often seems like it was written for someone who already knows what they are doing. This is all well and good if you do know what you are doing. However, it doesn’t help much if the documentation itself is a source of confusion.</p>
-<p>The basic unit of documentation in R is the R help file. While help files may be difficult to decipher at first, they are all difficult in the same way. That means once you understand one of them, understanding the rest is much easier. Most R help files focus on a particular function, like <code>mean()</code>. However, many packages and built-in data sets like <code>mtcars</code> also have help pages.</p>
+<p>If you have ever asked for coding help, you may have gotten the response “Have you checked the documentation”. This is the programming equivalent of asking if you have read the manual. And like many manuals, R documentation often seems like it was written for someone who already knows what they are doing. This is all well and good if you do know what you are doing. However, it doesn’t help much if the documentation itself is a source of confusion.</p>
+<p>The basic unit of documentation in R is the R help file. While help files may be difficult to decipher at first, they are all difficult in the same way. That means once you understand one of them, understanding the rest is much easier. Most R help files focus on a particular function, like <code>summary()</code>, which summarizes various types of data in R. However, many packages and built-in data sets like <code>mtcars</code> also have help pages.</p>
 </section>
 <section id="opening-r-documentation" class="level2">
 <h2 class="anchored" data-anchor-id="opening-r-documentation">Opening R Documentation</h2>
-<p>You can access R help files in several ways. If you know the name of the function or package you are looking for information about, you can use the <code>?</code> operator with the name of the function to open the R help file. This will only open documentation for functions and packages you currently have <strong>loaded</strong> into R. This is also equivalent to using the <code>help()</code> function</p>
+<p>You can access R help files in several ways. If you know the name of the function or package you are looking for information about, you can use the <code>?</code> operator in the console with the name of the function to open the R help file. This will only open documentation for functions and packages you currently have <strong>loaded</strong> into R. This is also equivalent to using the <code>help()</code> function.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">#these lines of code are equivalent</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>?summary</span>
@@ -226,12 +223,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">help</span>(<span class="st">'summary'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>If you are using RStudio this will bring up documentation for that function in help window. If you use the GUI, it will open a separate help window. If you are running R in bash or zsh, R will open the help file in your default text editor.</p>
-<p>Not all packages have help files, but many do. To load the help file for a package, you need to add <code>-package</code> onto the name of the package. Since R does not view “sf-package” as a single word, you need to surround it in tick marks (`).</p>
+<p>Not all packages have help files the way functions do, but it is getting more common. To load the help file for a package, you need to add <code>-package</code> onto the name of the package. Since R does not view “sf-package” as a single word, you need to surround it in tick marks (`).</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co">#load documentation for the sf package</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>?<span class="st">`</span><span class="at">sf-package</span><span class="st">`</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>If you are unsure of the function name, you can use the <code>??</code> operator to search all of your local R documentation for a term or set of terms. For multiple search terms, enclose them in tick marks. The <code>??</code> operator is equivalent to the function <code>help.search()</code>, but for help.search you enclose your search term in quotes. The help.search function also gives you more control over what you are searching.</p>
+<p>If you are unsure of the function name, you can use the <code>??</code> operator to search all of your local R documentation for a term or set of terms. For multiple search terms, enclose them in tick marks. The <code>??</code> operator is equivalent to the function <code>help.search()</code>, but for help.search you enclose your search term in quotes. The help.search function also gives you more control over what you are searching for.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>??<span class="st">`</span><span class="at">linear model</span><span class="st">`</span> </span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
@@ -240,31 +237,40 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <p>This will search documentation for all packages you have <strong>installed</strong>. It will then provide a list links to documentation pages you can use to find the function that works best. Functions are labeled using the schema [PACKAGE NAME]::[FUNCTION NAME] so you can tell which package to load to access function you are interested in.</p>
 <p>If you want to search documentation for packages that you haven’t installed yet, you have a couple of options. If you are only looking for packages that are available through <a href="https://cran.r-project.org/">CRAN</a> or <a href="https://www.bioconductor.org/packages/release/BiocViews.html#___Software">bioconductor</a>, you can use the <code>RSiteSearch()</code> function, or <a href="https://www.rdocumentation.org/">rdocumentation.org</a> if you prefer a web interface. CRAN itself contains a lot of documentation for each package on the package’s page (ex. <a href="https://cran.r-project.org/web/packages/dplyr/index.html">dplyr</a>), but the information isn’t searchable from the website and you have to know what package you want information on. If you also want to be able to search packages hosted on R-forge and Github in addition to CRAN and bioconductor, you can use <a href="https://rdrr.io/">rdrr.io</a>.</p>
-<section id="documentation-duplication" class="level3">
-<h3 class="anchored" data-anchor-id="documentation-duplication">Documentation Duplication</h3>
-<p>Sometimes you will have functions from different packages that share the same name. If you use the <code>?</code> operator to open the help file for one of these functions, a page will open with links to different documentation pages based on the package you are using. Be sure to click on the link that corresponds to the function you have questions about.</p>
-</section>
+<div class="callout callout-style-default callout-caution callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Documentation Duplication
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Sometimes you will have functions from different packages that share the same name. For example, the stats package and the dplyr package both have functions called <code>filter</code>, but one is used for filtering time series and the other subsets data.frames by row. If you use the <code>?</code> operator to open the help file for one of these functions, a page will open with links to different documentation pages based on the package you are using. Be sure to click on the link that corresponds to the function you have questions about.</p>
+</div>
+</div>
 </section>
 <section id="definitions" class="level2">
 <h2 class="anchored" data-anchor-id="definitions">Definitions</h2>
 <p>R documentation uses a couple of terms that are sometimes glossed over at introductory levels. However, without them, many R help files are nigh impossible to read.</p>
 <section id="functions" class="level3">
 <h3 class="anchored" data-anchor-id="functions">Functions</h3>
-<p>A function is a reusable set of instructions that performs a certain task. For example, the <code>sqrt</code> function takes the square root of a given number or numbers. The <code>length</code> function tells you the number of elements in a vector or list. For more information on functions, see DataLab’s <a href="https://ucdavisdatalab.github.io/workshop_r_basics/getting-started.html#calling-functions">Calling Functions</a> and <a href="https://ucdavisdatalab.github.io/workshop_r_basics/automating-tasks.html#functions">Functions</a> sections of the R Basics reader.</p>
+<p>A function is a pre-programmed set of instructions that performs a certain task. For example, the <code>sqrt</code> function takes the square root of a given number or numbers. The <code>length</code> function tells you the number of elements in a vector or list. For more information on functions, see DataLab’s <a href="https://ucdavisdatalab.github.io/workshop_r_basics/getting-started.html#calling-functions">Calling Functions</a> and <a href="https://ucdavisdatalab.github.io/workshop_r_basics/automating-tasks.html#functions">Functions</a> sections of the R Basics reader.</p>
 </section>
 <section id="arguments" class="level3">
 <h3 class="anchored" data-anchor-id="arguments">Arguments</h3>
-<p>An argument is an input to a function. Not all functions require arguments, but most do. Almost all arguments in R have names. Ideally argument name would tell you something about what the argument does, but that is not always the case. The name of the first three arguments to the lm function are <code>formula</code>, <code>data</code>, and <code>subset</code>, which are relatively informative. On the other hand, <code>sqrt()</code>’s singular argument <code>x</code> doesn’t give us very much information. Then again, taking the square root is much less complicated than fitting a linear regression. There are a few functions with unnamed arguments, but we will discuss that later.</p>
+<p>An argument is an input to a function, the information the function needs in order to work. Not all functions require arguments, but most do. Almost all arguments in R have names. Ideally argument name would tell you something about what the argument does, but that is not always the case. The name of the first three arguments to the lm function are <code>formula</code>, <code>data</code>, and <code>subset</code>, which are relatively informative. On the other hand, <code>sqrt()</code>’s singular argument <code>x</code> doesn’t give us very much information, which is why the the Arguments section of help files are is important. There are a few functions with unnamed arguments, but we will discuss that later.</p>
 </section>
 <section id="objects" class="level3">
 <h3 class="anchored" data-anchor-id="objects">Objects</h3>
-<p>Everything you can interact with in R is an object. Whenever you create a variable, you create an object. All of the objects you create will appear in the Environment tab in RStudio. If you aren’t using RStudio you can also get a list of objects you created using <code>ls()</code>.</p>
+<p>Everything you can interact with in R is an object. Whenever you create a variable, you create an object. All of the objects you create will appear in the Environment tab in RStudio. If you aren’t using RStudio, you can also get a list of objects you created using <code>ls()</code>.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">=</span> <span class="dv">5</span></span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] "has_annotations" "x"              </code></pre>
+<pre><code>[1] "x"</code></pre>
 </div>
 </div>
 <p>There are many more objects that R defines internally. R includes many built-in data sets (ex. <code>mtcars</code>), all of which are objects. Every function you use is also an object.</p>
@@ -275,8 +281,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="methods" class="level3">
 <h3 class="anchored" data-anchor-id="methods">Methods</h3>
-<p>A method is a function that is defined for a particular class of object. For example, the function <code>st_area</code> calculates the area of a set of shapes However, it only works for objects of the sf class, a type of object that stores geographical information. R assumes that the first argument you provide to <code>st_area</code> has the class sf, and if it doesn’t you will get an error message.</p>
-<p>Some functions may have methods defined for many different classes of objects. For example, you can use the summary function to summarize a vector of numbers or the columns of a data.frame.</p>
+<p>A method is a function that is defined for a particular class of object. For example, the function <code>st_area</code> calculates the area of a set of shapes. However, it only works for objects of the sf class, a type of object that stores geographical information. R assumes that the first argument you provide to <code>st_area</code> has the class sf, and if it doesn’t you will get an error message.</p>
+<p>Some functions may have methods defined for many different classes of objects. For example, you can use the summary function to summarize a vector of numbers or the columns of a data.frame. The internal code for the function automatically determines the class of the input data and applies the correct method for you.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">20</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -333,7 +339,19 @@ see '?methods' for accessing help and source code</code></pre>
 </div>
 </div>
 <p>To look up documentation for a specific method, use the schema [FUNCTION NAME].[CLASS NAME]. For example, if we want to look up documentation for the <code>summary</code> method for the class <code>lm</code>, we would use the code <code>?summary.lm</code>.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Advanced Topic
+</div>
+</div>
+<div class="callout-body-container callout-body">
 <p>This system of objects, classes, and methods is called Object-Oriented Programming (OOP). Object oriented programming is not unique to R, but R does it a little differently. If you want a deeper understanding of methods in R, the <a href="https://ucdavisdatalab.github.io/workshop_intermediate_r/language-fundamentals.html#s3">S3 section</a> of the Intermediate R reader describes the most widely used system of OOP in R. Additionally, <a href="https://adv-r.hadley.nz/oo.html">Advanced R</a> by Hadley Wickham provides a more complete description of the various OOP systems available in R as well as their trade-offs.</p>
+</div>
+</div>
 
 
 </section>

@@ -29,4 +29,5 @@ README.html
 *_cache/
 /env/
 
-
+#intermediate files
+*_files/

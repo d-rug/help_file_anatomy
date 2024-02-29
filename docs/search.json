@@ -168,5 +168,35 @@
     "crumbs": [
       "<span class='chapter-number'>2</span>  <span class='chapter-title'>Getting Help in R</span>"
     ]
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Anatomy of an R Help File",
+    "section": "",
+    "text": "Description\nThe R programming language has a vast and sprawling documentation library, and a lot of it is in a standardized format: the R help file. Unfortunately, R help files can be difficult to read at the best of times, and almost impossible to understand for those new to coding. This workshop will explain each section of the R help file, how to read them, and when they are the most useful. It will also introduce you a number of ways to search R documentation, both from R and on the internet.\nWorkshop site: https://d-rug.github.io/help_file_anatomy/",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Overview</span>"
+    ]
+  },
+  {
+    "objectID": "index.html#learning-objectives",
+    "href": "index.html#learning-objectives",
+    "title": "Anatomy of an R Help File",
+    "section": "Learning Objectives",
+    "text": "Learning Objectives\n\nKnow where to look for R documentation depending on what type of question you need answered\nUnderstand what information each section of an R help file contains\nBe able to use a help file to determine the following things about a function\n\nWhat arguments are required?\nWhat the class of those arguments needs to be?\nWhat are the default values for various arguments?\nWhat are the function’s outputs?",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Overview</span>"
+    ]
+  },
+  {
+    "objectID": "index.html#setup",
+    "href": "index.html#setup",
+    "title": "Anatomy of an R Help File",
+    "section": "Setup",
+    "text": "Setup\n\nif (!require('sf')) install.packages('sf')\nif (!require('forcats')) install.packages('forcats')",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Overview</span>"
+    ]
   }
 ]

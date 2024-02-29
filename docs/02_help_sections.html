@@ -342,13 +342,8 @@ Warning
 </div>
 <p>Second, the author of a given function may want to allow other packages to expand the use cases of that function. However, the original author won’t necessarily know what arguments will be useful for future R developers. So instead, they can include <code>...</code> as an argument, and then other packages can define additional arguments that will be useful to them.</p>
 <p>The <code>plot()</code> function is one example of this. If you look at the documentation for the generic <code>plot()</code> function, you can see that there are only a few arguments listed, and they seemed to be geared toward X-Y plotting. This is very useful, but it is definitely not the only type of plotting you may want to do.</p>
-<p>Many different types of objects benefit from visualization, including ones that don’t neatly fit into the X-Y paradigm. It is very common that packages will define a new class of object to accomplish a particular goal and want to visualize those object in some way. Instead of creating an entirely new function to visualize their new objects, the package’s creator can create a new method for <code>plot()</code>. This is useful because it standardizes the way we visualize things, and it reduces the amount of work the developer needs to do.</p>
-<!-- igraph for networks, can modify network node size, shape and color, and  -->
-<!--   label location, as well as connecting edge linewidth, and arrow size -->
-<!-- terra and sf for maps, change color scheme, zoom level of map, scale, what  -->
-<!--   variable gets visualized on the map -->
-<!-- stats plot diagnostics for different types of statistical models -->
-<p>The sf package uses this functionality. The sf package defines the <code>sf</code> class, which stores geographical information, like the counties of North Carolina. This is the type of data we use can to make maps.</p>
+<p>Many different types of objects benefit from visualization, including ones that don’t neatly fit into the X-Y paradigm. It is very common that packages will define a new class of object to accomplish a particular goal and want to visualize those object in some way. Instead of creating an entirely new function to visualize their new objects, the package’s creator can create a new method for <code>plot()</code>. This is useful because it standardizes the way we visualize things, and it reduces the amount of work the developer needs to do. The graphics package uses <code>plot()</code> to display table objects as bar charts and the stats package extends <code>plot()</code> to show diagnostics for linear regression (lm) objects.</p>
+<p>The sf package also uses this functionality. The sf package defines the <code>sf</code> class, which stores geographical information, like the counties of North Carolina. This is the type of data we use can to make maps.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(sf)</span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a></span>
@@ -469,7 +464,7 @@ Geodetic CRS:  NAD27
                           NA's   : 16                                  </code></pre>
 </div>
 </div>
-<p>It is rare that the code in the Examples section will do exactly what you want right off the bat. That does not mean the code is not useful. The key is to use this code as a starting point, code that you know runs, and then work from there.</p>
+<p>It is rare that the code in the Examples section will do exactly what you want right off the bat. That does not mean the code is not useful. The key is to use the code as a starting point since you know the code will run, and then work from there.</p>
 </section>
 <section id="further-reading" class="level2">
 <h2 class="anchored" data-anchor-id="further-reading">Further Reading</h2>

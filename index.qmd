@@ -14,17 +14,23 @@ will also introduce you a number of ways to search R documentation, both from R
 and on the internet.
 
 
-**Workshop site:** https://d-rug.github.io/help_file_anatomy/
+**Workshop site:** [https://d-rug.github.io/help_file_anatomy/][anatomy]
 
-## Learning Goals 
+[anatomy]: https://d-rug.github.io/help_file_anatomy/
+
+## Learning Objectives 
 
   * Know where to look for R documentation depending on what type of question 
   you need answered
   
-  * Understand what information each section of a R help file contains 
+  * Understand what information each section of an R help file contains 
   
-  * Know which help file sections to look at depending on what type of problem
-  you have
+  * Be able to use a help file to determine the following things about a
+  function 
+    * What arguments are required?
+    * What the class of those arguments needs to be?
+    * What are the default values for various arguments?
+    * What are the function's outputs?
   
 ## Setup
 

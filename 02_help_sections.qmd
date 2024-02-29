@@ -18,42 +18,41 @@ below. The sections of an R help file in order are:
   * [References][refs]
   * [Author(s)][auts]
   * [See Also][see]
-  * [Examples*][ex]
+  * [Examples][ex]
   
+Let's take a look at each section you might find in a help file.  
+
 ## Title
 
 This is the section at the top of the help file and tells you the name of the 
 documentation page you are looking at as well as the package the documentation
 file is from (enclosed in {}). It also displays a very brief summary of what the
-function does in large lettering. While the title is not something I use
-regularly, I do occasionally need to figure out what package a particular
-function lives in and the title is a great place to do that.
+function does in large lettering. Importantly, the title section is a good place
+to figure out what package a particular function lives in.
 
 If the package that contains the function is the "base" package, that means it
 is a part of "base" R, or the the set of functions and classes available to you
 whenever you open an R session. The packages stats, graphics, utils, datasets,
 methods, and grDevices are also always loaded whenever you open an R session, so
-you don't need to call them with `require` or `library`.
+you don't need to call them with `require()` or `library()`.
 
 ## Description
 
 The Description section gives a more detailed description of what the function
-or package does. It is not generally helpful for troubleshooting. However, it is
-useful when trying to determine whether or not a function would suit your needs
-for a particular task.
+or package does. It is useful when trying to determine whether or not a function
+would suit your needs for a particular task.
 
 ## Usage
 
 
-The Usage section is the first regularly useful section, and one of the sections
-I commonly look at when troubleshooting. It is also probably the most difficult 
-to interpret. In general, it gives you information about how to *use* the
-function. 
+The Usage section is particularly useful for troubleshooting. It is also
+probably the most difficult to interpret. In general, it gives you information
+about how to *use* the function.
 
 Every Usage section will have at least one example function call with
-the named arguments listed out. Arguments with an `=` after them have a default
-value. This means you don't necessarily need to provide a value for that argument when calling the function. However it is important to check that you are okay 
-with whatever the default value is. If there is no `=` after
+all of the named arguments listed out. Arguments with an `=` after them have a default
+value. This means you don't necessarily need to provide a value for that argument when calling the function. However it is important to check that the default
+value is what you want it to be. If there is no `=` after
 the argument, it is a required argument and you will need to provide it each 
 time you call the function. The Usage section does not describe what each
 argument does. For that, you need to go to the Arguments section, which we will
@@ -67,18 +66,24 @@ Even though two functions share a documentation page, that does not mean they
 share all the same arguments or default values. For example, the default value
 for the header argument is `FALSE` for `read.table` but `TRUE` for `read.csv`.
 
-If there is more than one example function call of the same function in the
-Usage section, that generally means that there is more than one version of the
-function (method). Which method R uses depends on the object class of the first
-argument passed to the function. When there is more than one method listed in a
-given documentation file, the file will tell you which class of object that
-particular method applies to using a comment just above the function call with
-language like "method for class X" or "method for signature X". This tells you
-that the arguments listed inside that call are the arguments you need to run
-that method if your first argument has a class of X, as well as the default
-values for that method.
 
-For example, if we summarize survey data from the [General Social Survey][gss]
+Sometimes there is more than one example function call for the same for 
+functions with the same name. This is the case for functions with methods
+for multiple classes of objects. When this happens, the documentation will
+specify the class the method is for with a comment above the function call.
+You can see this in the `summary()` documentation. The help file for `summary()`
+lists methods for objects of class data.frame, factor, and matrix. It
+also lists a default method, for if none of the other methods apply.
+
+:::{.callout-warning}
+Different methods may have different required arguments and default values.
+Make sure to use the documentation for the method that corresponds to the class
+of your first argument.
+
+:::
+
+
+If we summarize survey data from the [General Social Survey][gss]
 as a data.frame, R displays a maximum of 7 different values for categorical
 variables. 
 
@@ -90,7 +95,7 @@ summary(gss_cat)
 
 ```
 
-However, if we summarize one column of the data set, the summary function 
+However, if we summarize one column of the data set, the `summary()` function 
 displays many more categories.
 
 ```{r}
@@ -100,8 +105,8 @@ summary(gss_cat$relig)
 ```
 
 Going back to the documentation for `summary()`, we can see that for a
-data.frame the default value for maxsum is 7, while for a factor, the default
-value for maxsum is 100. Now, this is one difference between these two summary
+data.frame the default value for `maxsum` is 7, while for a factor, the default
+value for `maxsum` is 100. Now, this is one difference between these two
 methods, but to determine if this is the reason the outputs are different, we
 will need to refer to the Arguments section.
 
@@ -115,14 +120,15 @@ every function will use every argument. You will need to refer to the Usage
 section to determine if a given argument applies to the function you are using.
 
 
-To figure out what the maxsum argument actually does, we refer to the arguments
-section of the `summary()` help file. This tells us that maxsum determines the 
+To figure out what the `maxsum` argument actually does, we refer to the arguments
+section of the `summary()` help file. This tells us that `maxsum` determines the 
 maximum number of values that should be displayed for factors. This matches the
-change in behavior we saw in `summary` above.
+change in behavior we saw in `summary()` above.
 
 ### The ... Argument
 
 You may see `...` as one of the arguments in the Arguments and Usage sections.
+This is the exception to the rule that all arguments R functions are named. 
 This "argument" allows you to pass arguments to the function that are not
 explicitly listed in the function's documentation. This is typically done for
 two reasons.
@@ -141,9 +147,6 @@ data.frame(1:12, month.name, month.abb)
 
 ```
 
-This is the exception to the rule that all arguments R functions are named. If
-you don't want to have a set number of arguments, you can't give those arguments
-names.
 
 Second, the author of a given function may want to allow other packages to 
 expand the use cases of that function. However, the original author won't
@@ -151,8 +154,8 @@ necessarily know what arguments will be useful for future R developers. So
 instead, they can include `...` as an argument, and then other packages can
 define additional arguments that will be useful to them.
 
-The plot function is one example of this. If you look at the documentation for
-the generic plot function, you can see that there are only a few arguments
+The `plot()` function is one example of this. If you look at the documentation for
+the generic `plot()` function, you can see that there are only a few arguments
 listed, and they seemed to be geared toward X-Y plotting. This is very useful,
 but it is definitely not the only type of plotting you may want to do. 
 
@@ -164,9 +167,15 @@ function to visualize their new objects, the package's creator can create a
 new method for `plot()`. This is useful because it standardizes the way we
 visualize things, and it reduces the amount of work the developer needs to do. 
 
+<!-- igraph for networks, can modify network node size, shape and color, and  -->
+<!--   label location, as well as connecting edge linewidth, and arrow size -->
+<!-- terra and sf for maps, change color scheme, zoom level of map, scale, what  -->
+<!--   variable gets visualized on the map -->
+<!-- stats plot diagnostics for different types of statistical models -->
+
 The sf package uses this functionality. The sf package defines the `sf` class,
 which stores geographical information, like the counties of North Carolina. This
-is the type of data we use to make maps.
+is the type of data we use can to make maps.
 
 ```{r read_nc, message=FALSE}
 library(sf)
@@ -197,6 +206,7 @@ plot(nc['BIR74'], key.pos=1, logz=TRUE, main=plot_title)
 ```
 
 ## Details
+*(optional)*
 
 The this section generally contains information that is important but may not
 clearly fit in any of the other sections. It is often where I go looking for
@@ -212,6 +222,7 @@ a mathematical formula, the Details section may also include the formula, like
 in the case of `?dist`.
 
 ## Value
+*(almost always present)*
 
 The Value section tells you what a function will return after it completes. If
 you save the output of the function to a variable, this is the information that
@@ -220,61 +231,60 @@ class of the object as well the information the object contains. Some functions
 do not return a value. If this is the case, the Value section may specify that
 the function doesn't return anything or the Value section may be missing. Just
 because something displays in your console after running a function does not
-mean R returned anything (see [str][str_rd]).
+mean R returned anything. This is true for the function `str()`.
 
 ## Note
+*(optional)*
 
 The Note section is a second Details section for less critical pieces of
-information. In the help file for the data.frame function, it tells us that 
-if we need code to be compatible with versions of R earlier than R 2.4.0, the
-class of our row.names argument needs to be a character vector. While this is
-undoubtedly useful for a very small subset of users, it isn't relevant for most
-people.
+information. You may find information here useful for troubleshooting if the
+Details section does not solve your problem. In the help file for the
+`data.frame()` function, it tells us that if we need code to be compatible with
+versions of R earlier than R 2.4.0, the class of our row.names argument needs to
+be a character vector. 
 
 ## Author(s)
+*(optional)*
 
 The Authors(s) section lists the authors who wrote the function or package in
 question. It is more common to see for packages but there are some functions
 that mention specific authors as well, as is the case for `lm()`.
 
-```{r}
-
-?`sf-package`
-
-```
-
 ## References
+*(optional)*
 
 If the function implements a formula, statistical method, algorithm, procedure,
 or data structure developed elsewhere, the References section will include the
-citation for the original source. The References section for the data.frame
-function cites a textbook on the S programming language, R's precursor.
+citation for the original source. For example, the References section for 
+`data.frame()` cites a textbook on the S programming language, R's precursor.
 
 ## See Also
+*(optional)*
 
 If the function whose documentation you are reviewing doesn't do exactly what
-you want, this is a good section to peruse. See Also contains links to the
-documentation files for functions that are similar to the function to the
-function you are investigating. This could include functions that implement a
-modified formula (like weighted means), or methods that are implemented for a
-different class like the summary method for a linear regression model (`lm`)
-object. It also may include methods that can be used with a given class of 
-object, like in the case of the lm help file.
+you want, the See Also section is a good section to peruse. See Also contains
+links to the documentation files for functions that are similar to the function
+to the function you are investigating. This could include functions that
+implement a modified formula (like weighted means), or methods that are
+implemented for a different class like the summary method for a linear
+regression model (`lm`) object. It also may include methods that can be used
+with a given class of object, like in the case of the `lm()` help file.
 
 
 ## Examples
+*(almost always present)*
 
 The Examples section is by far the most useful section for beginners. It 
 contains example code that can be run on any computer without loading any
 additional packages or data. You can copy and paste it into your console and it
 should just work. It is a great place to start if you have absolutely no 
 experience with a function or package, or if you have tried everything
-and nothing seems to work. 
+and nothing seems to work. The examples can also help you understand how a function expects the input data to be structured.
 
-The Examples section can also be a good place to get code to tinker with when 
-trying to understand how a function works. For example, if you don't understand 
-the description of the `digits` argument in the `summary()` documentation, you 
-can use the code in 
+Finally, the Examples section can also be a good place to get code to tinker
+with when trying to understand how a function works. For example, if you don't
+understand the description of the `digits` argument in the `summary()`
+documentation, you can use the code in the Examples section as a starting point.
 
 ```{r}
 
@@ -283,7 +293,7 @@ summary(attenu, digits = 4)
 
 ```
 
-We can then modify the digits argument to see what effect this has on the 
+You can then modify the digits argument to see what effect this has on the 
 function's output.
 
 ```{r}
@@ -299,7 +309,7 @@ there.
 
 ## Further Reading
 
-  * [Getting Help with R]
+  * [Getting Help with R][rproj]
 
 [title_l]: https://d-rug.github.io/help_file_anatomy/02_help_sections.html#title
 [desc]: https://d-rug.github.io/help_file_anatomy/02_help_sections.html#description
@@ -314,3 +324,4 @@ there.
 [ex]: https://d-rug.github.io/help_file_anatomy/02_help_sections.html#examples
 [gss]: https://gss.norc.org/
 [str_rd]: https://www.rdocumentation.org/packages/utils/versions/3.6.2/topics/str 
+[rproj]: https://www.r-project.org/help.html

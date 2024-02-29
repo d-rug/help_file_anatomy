@@ -49,16 +49,17 @@ The Usage section is particularly useful for troubleshooting. It is also
 probably the most difficult to interpret. In general, it gives you information
 about how to *use* the function.
 
-Every Usage section will have at least one example function call with
-all of the named arguments listed out. Arguments with an `=` after them have a default
-value. This means you don't necessarily need to provide a value for that argument when calling the function. However it is important to check that the default
-value is what you want it to be. If there is no `=` after
-the argument, it is a required argument and you will need to provide it each 
-time you call the function. The Usage section does not describe what each
-argument does. For that, you need to go to the Arguments section, which we will
-cover next. In general, the Usage and Arguments sections are closely links and 
-I often find myself jumping back and forth between them when trying to 
-understand what a function is doing.
+Every Usage section will have at least one example function call with all of the
+named arguments listed out. Arguments with an `=` after them have a default
+value. This means you don't necessarily need to provide a value for that
+argument when calling the function. However it is important to check that the
+default value is what you want it to be. If there is no `=` after the argument,
+it is a required argument and you will need to provide it each time you call the
+function. The Usage section does not describe what each argument does. For that,
+you need to go to the Arguments section, which we will cover next. In general,
+the Usage and Arguments sections are closely links and I often find myself
+jumping back and forth between them when trying to understand what a function is
+doing.
 
 Sometimes developers document multiple functions in a single help file. This is
 the case for `read.table` and `read.csv`, which share a documentation page. 
@@ -120,10 +121,10 @@ every function will use every argument. You will need to refer to the Usage
 section to determine if a given argument applies to the function you are using.
 
 
-To figure out what the `maxsum` argument actually does, we refer to the arguments
-section of the `summary()` help file. This tells us that `maxsum` determines the 
-maximum number of values that should be displayed for factors. This matches the
-change in behavior we saw in `summary()` above.
+To figure out what the `maxsum` argument actually does, we refer to the
+arguments section of the `summary()` help file. This tells us that `maxsum`
+determines the maximum number of values that should be displayed for factors.
+This matches the change in behavior we saw in `summary()` above.
 
 ### The ... Argument
 
@@ -154,10 +155,10 @@ necessarily know what arguments will be useful for future R developers. So
 instead, they can include `...` as an argument, and then other packages can
 define additional arguments that will be useful to them.
 
-The `plot()` function is one example of this. If you look at the documentation for
-the generic `plot()` function, you can see that there are only a few arguments
-listed, and they seemed to be geared toward X-Y plotting. This is very useful,
-but it is definitely not the only type of plotting you may want to do. 
+The `plot()` function is one example of this. If you look at the documentation
+for the generic `plot()` function, you can see that there are only a few
+arguments listed, and they seemed to be geared toward X-Y plotting. This is very
+useful, but it is definitely not the only type of plotting you may want to do.
 
 Many different types of objects benefit from visualization, including
 ones that don't neatly fit into the X-Y paradigm. It is very common that 
@@ -166,16 +167,13 @@ want to visualize those object in some way. Instead of creating an entirely new
 function to visualize their new objects, the package's creator can create a 
 new method for `plot()`. This is useful because it standardizes the way we
 visualize things, and it reduces the amount of work the developer needs to do. 
+The graphics package uses `plot()` to display table objects as bar charts and 
+the stats package extends `plot()` to show diagnostics for linear regression 
+(lm) objects.
 
-<!-- igraph for networks, can modify network node size, shape and color, and  -->
-<!--   label location, as well as connecting edge linewidth, and arrow size -->
-<!-- terra and sf for maps, change color scheme, zoom level of map, scale, what  -->
-<!--   variable gets visualized on the map -->
-<!-- stats plot diagnostics for different types of statistical models -->
-
-The sf package uses this functionality. The sf package defines the `sf` class,
-which stores geographical information, like the counties of North Carolina. This
-is the type of data we use can to make maps.
+The sf package also uses this functionality. The sf package defines the `sf`
+class, which stores geographical information, like the counties of North
+Carolina. This is the type of data we use can to make maps.
 
 ```{r read_nc, message=FALSE}
 library(sf)
@@ -274,12 +272,13 @@ with a given class of object, like in the case of the `lm()` help file.
 ## Examples
 *(almost always present)*
 
-The Examples section is by far the most useful section for beginners. It 
+The Examples section is by far the most useful section for beginners. It
 contains example code that can be run on any computer without loading any
 additional packages or data. You can copy and paste it into your console and it
-should just work. It is a great place to start if you have absolutely no 
-experience with a function or package, or if you have tried everything
-and nothing seems to work. The examples can also help you understand how a function expects the input data to be structured.
+should just work. It is a great place to start if you have absolutely no
+experience with a function or package, or if you have tried everything and
+nothing seems to work. The examples can also help you understand how a function
+expects the input data to be structured.
 
 Finally, the Examples section can also be a good place to get code to tinker
 with when trying to understand how a function works. For example, if you don't
@@ -304,8 +303,8 @@ summary(attenu, digits = 1)
 
 It is rare that the code in the Examples section will do exactly what you want
 right off the bat. That does not mean the code is not useful. The key is to use
-this code as a starting point, code that you know runs, and then work from
-there.
+the code as a starting point since you know the code will run, and then work
+from there.
 
 ## Further Reading
 

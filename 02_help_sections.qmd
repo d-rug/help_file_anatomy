@@ -126,7 +126,7 @@ arguments section of the `summary()` help file. This tells us that `maxsum`
 determines the maximum number of values that should be displayed for factors.
 This matches the change in behavior we saw in `summary()` above.
 
-### The ... Argument
+### The `...` Argument
 
 You may see `...` as one of the arguments in the Arguments and Usage sections.
 This is the exception to the rule that all arguments R functions are named. 

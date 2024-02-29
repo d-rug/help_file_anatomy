@@ -177,7 +177,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#usage" id="toc-usage" class="nav-link" data-scroll-target="#usage">Usage</a></li>
   <li><a href="#arguments" id="toc-arguments" class="nav-link" data-scroll-target="#arguments">Arguments</a>
   <ul class="collapse">
-  <li><a href="#the-argument" id="toc-the-argument" class="nav-link" data-scroll-target="#the-argument">The … Argument</a></li>
+  <li><a href="#the-...-argument" id="toc-the-...-argument" class="nav-link" data-scroll-target="#the-...-argument">The <code>...</code> Argument</a></li>
   </ul></li>
   <li><a href="#details" id="toc-details" class="nav-link" data-scroll-target="#details">Details</a></li>
   <li><a href="#value" id="toc-value" class="nav-link" data-scroll-target="#value">Value</a></li>
@@ -314,8 +314,8 @@ Warning
 <h2 class="anchored" data-anchor-id="arguments">Arguments</h2>
 <p>The Arguments section lists out the name each argument to the function, the required class for that argument, and a description of what the argument does. It is probably the section I use most commonly use when troubleshooting. If there are multiple functions listed in the Usage section, it is possible not every function will use every argument. You will need to refer to the Usage section to determine if a given argument applies to the function you are using.</p>
 <p>To figure out what the <code>maxsum</code> argument actually does, we refer to the arguments section of the <code>summary()</code> help file. This tells us that <code>maxsum</code> determines the maximum number of values that should be displayed for factors. This matches the change in behavior we saw in <code>summary()</code> above.</p>
-<section id="the-argument" class="level3">
-<h3 class="anchored" data-anchor-id="the-argument">The … Argument</h3>
+<section id="the-...-argument" class="level3">
+<h3 class="anchored" data-anchor-id="the-...-argument">The <code>...</code> Argument</h3>
 <p>You may see <code>...</code> as one of the arguments in the Arguments and Usage sections. This is the exception to the rule that all arguments R functions are named. This “argument” allows you to pass arguments to the function that are not explicitly listed in the function’s documentation. This is typically done for two reasons.</p>
 <p>First, the function’s author many not want to restrict the number of arguments you can provide to the function. This is the case for functions like <code>sum()</code> and <code>data.frame()</code>. It would be very inconvenient if the R developers restricted the number of columns you could create a data.frame with.</p>
 <div class="cell">
